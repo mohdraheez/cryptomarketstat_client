@@ -14,6 +14,9 @@ function Home(){
                     <Tabledata/>
                 </tbody>
             </table>
+            <button className='showmorebtn' >
+                Show more
+            </button>
         </div>
     )
 }

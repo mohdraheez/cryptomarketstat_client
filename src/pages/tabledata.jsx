@@ -3,10 +3,15 @@ import Datacreator from './attachdata'
 import axios from 'axios'
 import { useState , useEffect } from 'react'
 
+var indexvalue = 20
 
+function Loader(){
+  indexvalue = indexvalue + 10;
+  console.log(indexvalue)
+}
 
 function ReturnData(arr,index){
-
+    if(index<indexvalue){
     return(
         <Datacreator key={index} 
         rank={arr.rank} 
@@ -19,6 +24,7 @@ function ReturnData(arr,index){
         symbol={arr.symbol}
         />
     )
+    }
 }
 
 function Tabledata(){
@@ -42,11 +48,17 @@ function Tabledata(){
         })
         }
 
+        document.querySelector('.showmorebtn').addEventListener('click',()=>{
+            Loader();
+            fetchdata();
+        })
+
         const caller =setInterval(fetchdata, 1000);
         fetchdata();
         return()=>clearInterval(caller);
 
         // console.log(data);
+
     },[])   
 
 
