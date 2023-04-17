@@ -1,0 +1,109 @@
+
+.detaillogo{
+    max-width: 45px;
+}
+
+.detailheading {
+    /* background-color: #03C988; */
+    /* background-color: #03C4A1; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detailheader{
+    display: flex;
+    background-color: #BBE1FA;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.Detailcontent{
+    margin-top: 1%;
+    display: flex;
+    align-items: center;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+.Detailcontentinnerdiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color:white;
+    width: 60%;
+    flex-direction: row;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px  rgba(0, 0, 0, 0.3);
+    padding: 1%;
+}
+
+.graph{
+    margin-top: 2%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chartdiv{
+    width: 60%;
+}
+
+.detailheader *{
+    margin: 0;
+}
+
+.Rank{
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color:black;
+    color:white;
+    border-radius: 10px;
+}
+
+@media screen and (max-width : 768px) {
+    .detaillogo{
+        max-width: 40px;
+    }
+
+    .Detailcontent{
+        margin-top: 4%;
+    }
+
+    .Detailcontentinnerdiv {
+        width: 85%;
+    }
+
+    .Detailcontentinnerdiv *{
+        font-size: medium;
+    }
+
+    .Rank{
+        font-size: small;
+        position: relative;
+        top: 3px;
+    }
+
+    .chartdiv{
+        width: 95%;
+        height: 300px;
+    }
+    
+}
+
+@media screen and (max-width : 350px) {
+    .Detailcontentinnerdiv *{
+        font-size: small;
+    }
+    .Rank{
+        font-size: small;
+        position: relative;
+        top: 3px;
+    }
+}
