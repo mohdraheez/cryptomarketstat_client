@@ -22,13 +22,17 @@ const CryptoChart = (props) => {
               var url = `https://coindekho.onrender.com/apidatagraph/${sym}`;
               // var url = 'http://127.0.0.1:3333/apidataimg';
               const response = await axios.get(url)
-              setData(response.data.Data.Data);
+              const data =response.data.Data.Data;
+              const filteredData = window.innerWidth < 768
+              ? data.filter((d) => d.time > (Date.now() - 30 * 60 * 1000) / 1000)
+              : data;
+              setData(filteredData);
             } catch (err) {
               console.log(err);
             }
           };
 
-          var fetcher = setInterval(fetchData,30000);
+          var fetcher = setInterval(fetchData,15000);
           fetchData();
           return()=>clearInterval(fetcher);
 
@@ -61,13 +65,23 @@ const CryptoChart = (props) => {
                 display: true,
                 grid:{
                     display:false
+                },
+                ticks: {
+                font: {
+                  size: window.innerWidth < 600 ? 6 : 10
                 }
+              }
               },
               y: {
                 display: true,
                 position:"right",
                 grid :{
                     display:false
+                },
+                ticks: {
+                  font: {
+                    size: window.innerWidth < 600 ? 6 : 10
+                  }
                 }
               }
             },
