@@ -75,6 +75,10 @@ td,th{
 
 
 @media screen and (max-width:768px){
+    .showmorebtn{
+        margin-top: 6%;
+        width: 35%;
+    }
     .name{
         display: flex;
         flex-direction: column;
