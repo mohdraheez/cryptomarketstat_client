@@ -11,10 +11,13 @@ function Dropdown(){
         cur3 : "BTC"
     })
 
+    var dark = {
+        color :"white"
+    }
 
     return(
         <div className="dropdown">
-                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={dark}>
                         {cur}
                     </button>
                     <ul class="dropdown-menu">

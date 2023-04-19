@@ -6,9 +6,9 @@ var change = 0;
 var price = 0;
 
 function HighLowFetcher(props){
-    const [High,setHigh] = useState(-999);
-    const [Low,setLow] = useState(-999);
-    const [First,setFirst] = useState(-999);
+    const [High,setHigh] = useState(0);
+    const [Low,setLow] = useState(0);
+    const [First,setFirst] = useState(0);
     const [Last,setLast] = useState(0);
     var currency = '$'
     var sym = props.sym;
@@ -47,13 +47,13 @@ function HighLowFetcher(props){
     return(
         <>
             <div>
-            <h6>High:{currency}{High}</h6>
-            <h6>Low:{currency}{Low}</h6>
+            <h6>High : {currency}{High}</h6>
+            <h6>Low : {currency}{Low}</h6>
             </div>
 
             <div>
-            <h6>change:<span style={change<0?negative:positive}>{change}%</span></h6>
-            <h6>Average:{currency}{((First+Last)/2).toFixed(2)}</h6>
+            <h6>change : <span style={change<0?negative:positive}>{change}%</span></h6>
+            <h6>Average : {currency}{((First+Last)/2).toFixed(2)}</h6>
 
             </div>
         </>

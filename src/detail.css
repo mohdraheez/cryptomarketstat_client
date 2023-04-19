@@ -14,7 +14,10 @@
 
 .detailheader{
     display: flex;
-    background-color: #BBE1FA;
+    /* background-color: #BBE1FA; */
+    background-color: #30475E;
+    color:black;
+    color: white;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -34,7 +37,10 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color:white;
+    /* background-color:white; */
+    background-color: rgba(35, 35, 35, 0.719);
+    color: black;
+    color:white;
     width: 60%;
     flex-direction: row;
     border-radius: 10px;

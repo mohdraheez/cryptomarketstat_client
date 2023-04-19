@@ -4,7 +4,9 @@
     margin: 0 auto;
     padding-bottom: 60px;
     /* position: fixed; */
-    background-color: white;
+    /* background-color: white; */
+    background-color: #121212;
+    color:white;
     box-shadow: 0 0 4px rgb(0,0,0,0.2); 
 
 }
@@ -28,14 +30,21 @@
 }
 
 .searchcontainer input[type="text"]{
-    background-color: #edeced;
+    /* background-color: #edeced; */
+    background-color: rgb(25, 25, 25);
     border-color: transparent;
     padding: 1.5%;
     padding-left: 10%;
+    /* color:black; */
+    color:white;
     width: 80%;
     border-radius: 20px;
 }
 
+.searchcontainer input[type="text"]::placeholder{
+    /* color:black; */
+    color: white;
+}
 
 .searchcontainer input[type="text"]:focus{
     outline: none;
