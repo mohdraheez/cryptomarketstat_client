@@ -37,7 +37,7 @@ function Datacreator(props){
     }
 
     var negative = {
-        color: "#03C988"
+        color: "#ED2B2A"
     }
 
     var Style = {
@@ -51,7 +51,7 @@ function Datacreator(props){
             Style.color = "#03C988"
         }
         else{
-            Style.color ="03C988";
+            Style.color ="#ED2B2A";
         }
         prev[symbol] = Number(price).toFixed(3);
 
@@ -66,7 +66,7 @@ function Datacreator(props){
         <td>{props.rank}</td>
         <td className="name"><ReturnImage sym={props.symbol} class="logo"/> {props.name} <span>{props.symbol}</span></td>
         <td style={Style}>{sym}{Number(props.price).toFixed(2)}</td>
-        <td style={Number(props.change24hr)>0?positve:negative}>{Number(props.change24hr).toFixed(2)}%</td>
+        <td style={Number(props.change24hr)>=0?positve:negative}>{Number(props.change24hr).toFixed(2)}%</td>
         <td>{sym}{convertor(props.volume)}</td>
         <td className="supply">{sym}{convertor(props.supply)}</td>
         <td>{sym}{convertor(props.marketcap)}</td>
