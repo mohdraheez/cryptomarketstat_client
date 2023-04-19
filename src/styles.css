@@ -88,13 +88,21 @@ td,th{
     }
 
     .home table{
-        width: 90%;
-        font-size: .7rem;
+        width: 95%;
+        font-size: .85rem;
+    }
+
+    .supply{
+        display: none;
     }
 }
 @media screen and (max-width:360px){
     .home table{
         width: 95%;
+        font-size: .71rem;
+    }
+
+    .home thead{
         font-size: .6rem;
     }
 

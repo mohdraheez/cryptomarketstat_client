@@ -8,7 +8,7 @@ function TableHead(){
             <th>Price</th>
             <th>24h</th>
             <th>24hVolume</th>
-            <th>Supply</th>
+            <th className='supply'>Supply</th>
             <th>MarketCap</th>
         </tr>
     )

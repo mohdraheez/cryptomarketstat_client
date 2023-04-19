@@ -34,10 +34,14 @@
     background-color: #edeced;
 }
 
+.selected{
+    border-bottom: 3px solid #57C5B6; 
+}
+
 @media screen and (max-width:768px) {
     .middlelayer{
-        margin-left: 5%;
-        margin-right: 5%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
         font-size: .9rem;
     }
 }

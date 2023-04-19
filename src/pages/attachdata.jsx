@@ -68,7 +68,7 @@ function Datacreator(props){
         <td style={Style}>{sym}{Number(props.price).toFixed(2)}</td>
         <td style={Number(props.change24hr)>0?positve:negative}>{Number(props.change24hr).toFixed(2)}%</td>
         <td>{sym}{convertor(props.volume)}</td>
-        <td>{sym}{convertor(props.supply)}</td>
+        <td className="supply">{sym}{convertor(props.supply)}</td>
         <td>{sym}{convertor(props.marketcap)}</td>
         </tr>
     )

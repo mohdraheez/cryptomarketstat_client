@@ -5,9 +5,9 @@ function MiddleLayer(){
     return(
         <div className="middlelayer">
             <ul className="navitems">
-                <li>Top Coins</li>
-                <li>Top Gainers</li>
-                <li>Top Losers</li>
+                <li className="selected">Top Coins</li>
+                {/* <li>Top Gainers</li>
+                <li>Top Losers</li> */}
             </ul>
         </div>
     )
