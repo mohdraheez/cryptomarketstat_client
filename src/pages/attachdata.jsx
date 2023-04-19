@@ -37,7 +37,7 @@ function Datacreator(props){
     }
 
     var negative = {
-        color: "#DF2E38"
+        color: "#03C988"
     }
 
     var Style = {
@@ -48,10 +48,10 @@ function Datacreator(props){
             Style.color="black";
         }
         else if(Number(price).toFixed(3)>prev[symbol]){
-            Style.backgroundColor = "#99F3BD"
+            Style.color = "#03C988"
         }
         else{
-            Style.backgroundColor ="rgba(223, 46, 56, 0.5)";
+            Style.color ="03C988";
         }
         prev[symbol] = Number(price).toFixed(3);
 
@@ -62,10 +62,10 @@ function Datacreator(props){
     
     
     return(
-        <tr className="tabledatacontent" style={Style} name={props.symbol} onClick={()=>{eventHandler(symbol)}}>
+        <tr className="tabledatacontent" name={props.symbol} onClick={()=>{eventHandler(symbol)}}>
         <td>{props.rank}</td>
         <td className="name"><ReturnImage sym={props.symbol} class="logo"/> {props.name} <span>{props.symbol}</span></td>
-        <td>{sym}{Number(props.price).toFixed(2)}</td>
+        <td style={Style}>{sym}{Number(props.price).toFixed(2)}</td>
         <td style={Number(props.change24hr)>0?positve:negative}>{Number(props.change24hr).toFixed(2)}%</td>
         <td>{sym}{convertor(props.volume)}</td>
         <td>{sym}{convertor(props.supply)}</td>
