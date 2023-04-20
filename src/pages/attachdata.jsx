@@ -37,7 +37,7 @@ function Datacreator(props){
     }
 
     var negative = {
-        color: "#ED2B2A"
+        color: "#FF8787"
     }
 
     var Style = {
@@ -51,7 +51,7 @@ function Datacreator(props){
             Style.color = "#03C988"
         }
         else{
-            Style.color ="#ED2B2A";
+            Style.color ="#FF8787";
         }
         prev[symbol] = Number(price).toFixed(3);
 
