@@ -11,7 +11,8 @@ function ReturnImage(props) {
         // var url = 'http://192.168.201.88:3333/apidataimg';
         var url = `https://coindekho.onrender.com/apidataimg/${sym}`;
         const response = await axios.get(url)
-        setData(response.data.url);
+        console.log(response.data);
+        setData(response.data);
       } catch (err) {
         console.log(err);
       }
