@@ -25,6 +25,7 @@ function HighLowFetcher(props){
             try {
                 var url = `https://coindekho.onrender.com/apidatagraph/${sym}`;
                 const response = await axios.get(url)
+                console.log(response)
                 var length = response.data.Data.Data.length;
                 setLast((response.data.Data.Data[length-1].close))
                 setFirst((response.data.Data.Data[0].close))

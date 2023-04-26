@@ -21,8 +21,8 @@ function eventHandler(e){
 var collapse = 0;
 
 document.querySelector('body').addEventListener('click',(e)=>{
-    if(e.target.classList[2]!=="searchicon"){
-    console.log('came here')
+    console.log(e.target.classList[0])
+    if(e.target.classList[2]!=="searchicon" && e.target.classList[0]!='search'){
     document.querySelector('.rightcontainer').classList.remove('rightcontainercollapse');
     document.querySelector('.searchcontainer').classList.remove('searchcontainercollapse');
     document.querySelector('.search').classList.remove('searchcollapse');
