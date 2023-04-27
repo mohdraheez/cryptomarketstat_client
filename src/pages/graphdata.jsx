@@ -23,7 +23,7 @@ function HighLowFetcher(props){
     useEffect(()=>{
         const fetcher = async ()=>{
             try {
-                var url = `https://coindekho.onrender.com/apidatagraph/${sym}`;
+                var url = `https://coinsdekho.azurewebsites.net/apidatagraph/${sym}`;
                 const response = await axios.get(url)
                 console.log(response)
                 var length = response.data.Data.Data.length;

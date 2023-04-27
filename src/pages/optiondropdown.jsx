@@ -22,7 +22,7 @@ function Options(){
     const [loading,setloader] = useState(true);
 
     if(loading){
-        var url= "https://coindekho.onrender.com/apidata"
+        var url= "https://coinsdekho.azurewebsites.net/apidata"
         axios.get(url)
         .then(response =>{
             setdata(response.data.data);

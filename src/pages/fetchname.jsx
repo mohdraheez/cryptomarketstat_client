@@ -9,7 +9,7 @@ function ReturnCoinName(props){
     var sym = props.sym;
     useEffect(()=>{
        var fetchname = async() => {
-        var url = `https://coindekho.onrender.com/apidata/${sym}`
+        var url = `https://coinsdekho.azurewebsites.net/apidata/${sym}`
         const response = await axios.get(url)
         setName(response.data)
        }

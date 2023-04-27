@@ -19,7 +19,7 @@ const CryptoChart = (props) => {
     useEffect(() => {
         var fetchData = async () => {
             try {
-              var url = `https://coindekho.onrender.com/apidatagraph/${sym}`;
+              var url = `https://coinsdekho.azurewebsites.net/apidatagraph/${sym}`;
               // var url = 'http://127.0.0.1:3333/apidataimg';
               const response = await axios.get(url)
               const data =response.data.Data.Data;
