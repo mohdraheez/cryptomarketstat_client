@@ -72,7 +72,7 @@ function Tabledata() {
 
 
     useEffect(() => {
-        var url = `${process.env.server}/apidata`
+        var url = `https://coindekho.onrender.com/apidata`
         // var url= "http://192.168.201.88:3333/apidata"
         const fetchdata = async () => {
             axios.get(url)
