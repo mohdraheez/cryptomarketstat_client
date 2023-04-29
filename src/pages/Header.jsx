@@ -47,7 +47,10 @@ function searchhandler(){
 function Header() {
     return (
         <header className="header">
-            <img src={logo} alt="logo" />
+            <div className='heading'>
+                <img src={logo} alt="logo" />
+                <h1>CoinsDekho</h1>
+            </div>
             <div className="searchcontainer">
                 <FontAwesomeIcon icon={faMagnifyingGlass} className="searchicon"  onClick={searchhandler}/>
                 <input list="cryptolist" placeholder="search" className="search" name="cryptolist" onInput={eventHandler}/>

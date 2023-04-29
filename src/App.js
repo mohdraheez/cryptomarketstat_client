@@ -6,6 +6,7 @@ import Header from './pages/Header';
 import MiddleLayer from './pages/middlelayer';
 import Detail from './pages/detail';
 import './styles.css'
+import Footer from './pages/footer'
 
 
 
@@ -31,6 +32,7 @@ function App() {
         >    
         </Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }

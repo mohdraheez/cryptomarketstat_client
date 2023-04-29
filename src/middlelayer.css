@@ -2,13 +2,11 @@
     margin-top: 10px;
     margin-left: 10%;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    /* background:white; */
-    background-color: rgba(35, 35, 35, 0.719);
+    background:white;
     margin-right: 10%;
     height: 65px;
     border-radius: 5px;
-    /* color:black; */
-    color: white;
+    color:black;
     font-size: 1.1rem;
 
 }
@@ -34,7 +32,7 @@
 
 .navitems li:hover{
     border-bottom: 3px solid #57C5B6;
-    background-color: #43436a;
+    /* background-color: #43436a; */
 
 }
 
