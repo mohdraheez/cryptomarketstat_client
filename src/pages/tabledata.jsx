@@ -196,31 +196,31 @@ function Tabledata() {
             </>
         )
         switch(switcher){
-            case 0: data.data.sort((a,b)=> a.rank-b.rank);
+            case 0: data.sort((a,b)=> a.rank-b.rank);
             break;
-            case 1:data.data.sort((a,b) => b.rank-a.rank);
+            case 1:data.sort((a,b) => b.rank-a.rank);
             break;
-            case 2:data.data.sort((a,b) => b.priceUsd-a.priceUsd);
+            case 2:data.sort((a,b) => b.priceUsd-a.priceUsd);
             break
-            case 3:data.data.sort((a,b) => a.priceUsd-b.priceUsd);
+            case 3:data.sort((a,b) => a.priceUsd-b.priceUsd);
             break;
-            case 4:data.data.sort((a,b) => b.changePercent24Hr-a.changePercent24Hr);
+            case 4:data.sort((a,b) => b.changePercent24Hr-a.changePercent24Hr);
             break
-            case 5:data.data.sort((a,b) => a.changePercent24Hr-b.changePercent24Hr);
+            case 5:data.sort((a,b) => a.changePercent24Hr-b.changePercent24Hr);
             break;
-            case 6:data.data.sort((a,b) => b.volumeUsd24Hr-a.volumeUsd24Hr);
+            case 6:data.sort((a,b) => b.volumeUsd24Hr-a.volumeUsd24Hr);
             break
-            case 7:data.data.sort((a,b) => a.volumeUsd24Hr-b.volumeUsd24Hr);
+            case 7:data.sort((a,b) => a.volumeUsd24Hr-b.volumeUsd24Hr);
             break;
-            case 8:data.data.sort((a,b) => b.marketCapUsd-a.marketCapUsd);
+            case 8:data.sort((a,b) => b.marketCapUsd-a.marketCapUsd);
             break;
-            case 9:data.data.sort((a,b) => a.marketCapUsd-b.marketCapUsd);
+            case 9:data.sort((a,b) => a.marketCapUsd-b.marketCapUsd);
             break;
-            case 10:data.data.sort((a,b) => Number(b.supply)-Number(a.supply));
+            case 10:data.sort((a,b) => Number(b.supply)-Number(a.supply));
             break;
-            case 11:data.data.sort((a,b) => a.supply-b.supply);
+            case 11:data.sort((a,b) => a.supply-b.supply);
             break;
-            default:data.data.sort((a,b)=> a.rank-b.rank);
+            default:data.sort((a,b)=> a.rank-b.rank);
           }
 
     return (

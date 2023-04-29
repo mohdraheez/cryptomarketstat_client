@@ -39,7 +39,7 @@
 }
 
 .name{
-    color:#BFDCE5;
+    color:#2600ff;
 }
 
 .tableHead{
@@ -111,7 +111,7 @@ Footer{
     .name{
         display: flex;
         flex-direction: column;
-        color:#FF87CA;
+        color:#2600ff;
         }
     .home{
         margin-top: 2%;

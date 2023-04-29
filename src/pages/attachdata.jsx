@@ -45,7 +45,7 @@ function Datacreator(props){
 
     if (prev.hasOwnProperty(symbol)) {
         if(Number(price).toFixed(3)===prev[symbol]){
-            Style.color="white";
+            Style.color="black";
         }
         else if(Number(price).toFixed(3)>prev[symbol]){
             Style.color = "#03C988"
