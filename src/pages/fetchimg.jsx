@@ -9,7 +9,7 @@ function ReturnImage(props) {
     var fetchData = async () => {
       try {
         // var url = 'http://192.168.201.88:3333/apidataimg';
-        var url = `https://coinsdekho.azurewebsites.net/apidataimg/${sym}`;
+        var url = `${process.env.server}/apidataimg/${sym}`;
         const response = await axios.get(url)
         console.log(response.data);
         setData(response.data);

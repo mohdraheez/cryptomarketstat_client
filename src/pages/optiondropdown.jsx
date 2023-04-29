@@ -22,7 +22,7 @@ function Options(){
     const [loading,setloader] = useState(true);
 
     if(loading){
-        var url= "https://coinsdekho.azurewebsites.net/apidata"
+        var url= `${process.env.server}/apidata`
         axios.get(url)
         .then(response =>{
             setdata(response.data.data);
