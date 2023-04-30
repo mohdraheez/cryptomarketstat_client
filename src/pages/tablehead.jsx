@@ -14,7 +14,7 @@ function TableHead(){
                     <th className="pricebtn" >Price<FontAwesomeIcon icon={faCaretUp} className='priceup' style={startupstyle}/><FontAwesomeIcon icon={faCaretDown} className='pricedown'style={startupstyle}/></th>
                     <th className="hbtn">24h <FontAwesomeIcon icon={faCaretUp} className='hup' style={startupstyle}/><FontAwesomeIcon icon={faCaretDown} className='hdown'style={startupstyle}/></th>
                     <th className="hvbtn">24hVolume<FontAwesomeIcon icon={faCaretUp} className='hvup' style={startupstyle}/><FontAwesomeIcon icon={faCaretDown} className='hvdown'style={startupstyle}/></th>
-                    <th className="supplybtn">Supply<FontAwesomeIcon icon={faCaretUp} className='supplyup' style={startupstyle}/><FontAwesomeIcon icon={faCaretDown} className='supplydown'style={startupstyle}/></th>
+                    <th className="supply supplybtn" >Supply<FontAwesomeIcon icon={faCaretUp} className='supplyup' style={startupstyle}/><FontAwesomeIcon icon={faCaretDown} className='supplydown'style={startupstyle}/></th>
 
                     <th className="mrktcapbtn">MarketCap<FontAwesomeIcon icon={faCaretUp} className='mkcapup' style={startupstyle}/><FontAwesomeIcon icon={faCaretDown} className='mkcapdown'style={startupstyle}/></th>
         </tr>

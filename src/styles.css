@@ -85,6 +85,8 @@ Footer{
     margin-top: 2%;
     padding: 2.5%;
     background-color: white;
+    position:static;
+    bottom: 0px;
 }
 
 .description{

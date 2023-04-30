@@ -117,11 +117,11 @@
     }
 }
 
-@media screen and (max-width:510px){
+@media screen and (max-width:600px){
 
 
     .header img{
-        height:35px;
+        height:45px;
     }
 
     .search{
