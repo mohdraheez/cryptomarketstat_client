@@ -72,8 +72,8 @@ function Tabledata() {
 
 
     useEffect(() => {
-        var url = `https://coindekho.onrender.com/apidata`
-        // var url= "https://coinsdekho.azurewebsites.net/apidata"
+        // var url = `https://coindekho.onrender.com/apidata`
+        var url= "https://coinsdekho.azurewebsites.net/apidata"
         const fetchdata = async () => {
             axios.get(url)
                 .then((response) => {
