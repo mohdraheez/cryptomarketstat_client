@@ -32,7 +32,6 @@
 }
 
 .searchcontainer{
-    display: block;
     float:left;
     margin-top:10px;
     width: 500px;
@@ -40,6 +39,10 @@
     position: absolute;
     left: 17%;
 }
+.searchcontainer *{
+    display:inline;
+}
+
 
 .search{
     background-color: #edeced;
@@ -49,6 +52,9 @@
     color:black;
     width: 80%;
     border-radius: 20px;
+    display:inline;
+    z-index: 1;
+
 }
 
 .search::placeholder{

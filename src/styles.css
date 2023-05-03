@@ -9,6 +9,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: .5%;
+    z-index:0;
 }
 
 .home table{
@@ -47,12 +48,14 @@
     background:white;
     color:black;
     box-shadow: 1px 1px 5px  rgba(0, 0, 0, 0.2);
+    z-index:-1;
 }
 
 .tableData{
     position: relative;
     box-shadow: 2px 2px 10px  rgba(0, 0, 0, 0.2);
     top:10px;
+    z-index: -1;
 }
 
 .tabledatacontent{
@@ -61,6 +64,8 @@
     color:black;
     box-shadow: 0px 0px 1px  rgba(0, 0, 0, 0.2);
     height: 60px;   
+    z-index:-1;
+
 }
 
 tr:nth-child(even){
@@ -109,6 +114,28 @@ Footer{
 .cur{
     color: gray;
 }
+.suggestionbox{
+    position: relative;
+    display:block;
+    z-index:1;
+    max-height: 40vh;
+    overflow:auto;
+}
+
+.suggestionbox ul{
+    position: relative;
+    z-index:0;
+    list-style:none;
+}
+
+.suggestion{
+    position: relative;
+    display:block;
+    z-index:0;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: white;
+}
 
 @media screen and (max-width:768px){
 
@@ -134,7 +161,19 @@ Footer{
         display: none;
     }
 
- 
+}
+
+@media screen and (max-width:600px) {
+    .suggestionbox{
+        position: absolute;
+        max-height: 25vh;
+        top:25%;
+        overflow-y:auto;
+    }
+
+    .suggestion{
+        padding:5px;
+    }
 }
 @media screen and (max-width:360px){
     .home table{
@@ -146,3 +185,4 @@ Footer{
         font-size: .6rem;
     }
 }
+

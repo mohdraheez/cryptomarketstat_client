@@ -8,7 +8,7 @@
     border-radius: 5px;
     color:black;
     font-size: 1.1rem;
-
+    z-index:-1;
 }
 
 .navitems{
@@ -20,6 +20,7 @@
     display: flex;
     margin: 0;
     padding: 0;
+    z-index:0;
 }
 
 .navitems li{
@@ -38,6 +39,7 @@
 
 .selected{
     border-bottom: 3px solid #57C5B6; 
+    z-index:-1;
 }
 
 @media screen and (max-width:768px) {

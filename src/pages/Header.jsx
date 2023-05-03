@@ -3,8 +3,6 @@ import logo from './../images/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
 import Dropdown from './dropdown';
 import '../header.css'
 import Options from './optiondropdown';
@@ -14,14 +12,13 @@ function eventHandler(e){
     var val = e.target.value.split(" ")
     var length = val.length;
     if(document.getElementById(data)){
-        window.location.href = `/Details/${val[length-1].toUpperCase()}`;
+        window.location.href = `/Details/${val[length-1].toUpperCase()} ${val[0]}`;
     }
 }
 
 var collapse = 0;
 
 document.querySelector('body').addEventListener('click',(e)=>{
-    console.log(e.target.classList[0])
     if(e.target.classList[2]!=="searchicon" && e.target.classList[0]!='search'){
     document.querySelector('.rightcontainer').classList.remove('rightcontainercollapse');
     document.querySelector('.searchcontainer').classList.remove('searchcontainercollapse');
@@ -42,8 +39,6 @@ function searchhandler(){
 
 }
 
-
-
 function Header() {
     return (
         <header className="header">
@@ -53,10 +48,7 @@ function Header() {
             </div>
             <div className="searchcontainer">
                 <FontAwesomeIcon icon={faMagnifyingGlass} className="searchicon"  onClick={searchhandler}/>
-                <input list="cryptolist" placeholder="search" className="search" name="cryptolist" onInput={eventHandler}/>
-                <datalist id="cryptolist" name="cryptolist" >
                     <Options/>
-                </datalist>
             </div>
 
             <div className="rightcontainer">
