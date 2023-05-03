@@ -4,6 +4,7 @@ import Chart from 'chart.js/auto';
 import { CategoryScale } from 'chart.js';
 import axios from 'axios';
 import {change} from './graphdata'
+import { curchange } from './dropdown'
 
 Chart.register(CategoryScale);
 
@@ -19,7 +20,7 @@ const CryptoChart = (props) => {
     useEffect(() => {
         var fetchData = async () => {
             try {
-              var url = `https://min-api.cryptocompare.com/data/v2/histominute?fsym=${sym}&tsym=USD&limit=60`;
+              var url = `https://min-api.cryptocompare.com/data/v2/histominute?fsym=${sym}&tsym=${curchange}&limit=60`;
               const response = await axios.get(url)
               const data =response.data.Data.Data;
               const filteredData = window.innerWidth < 768

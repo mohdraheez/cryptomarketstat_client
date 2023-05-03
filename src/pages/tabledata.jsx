@@ -2,6 +2,7 @@ import React from 'react'
 import Datacreator from './attachdata'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import { curchange } from './dropdown'
 
 var switcher = 0;
 
@@ -67,16 +68,14 @@ function Tabledata() {
     const [loading, setloading] = useState(true);
     var offline = [];
 
-
     for (var i = 0; i < indexvalue; i++) {
         offline.push('Loading')
     }
 
 
     useEffect(() => {
-        // var url = `https://coindekho.onrender.com/apidata`
         const fetchdata = async () => {
-         var url= `https://api.coinstats.app/public/v1/coins?skip=0&limit=${indexvalue}&currency=USD`
+         var url= `https://api.coinstats.app/public/v1/coins?skip=0&limit=${indexvalue}&currency=${curchange}`
             axios.get(url)
                 .then((response) => {
                     setdata(response.data.coins)

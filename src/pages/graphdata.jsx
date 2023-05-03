@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 import axios from 'axios';
-
+import { curchange } from './dropdown'
+import { cursymbol } from "./dropdown";
 
 var change = 0;
 var price = 0;
@@ -10,7 +11,7 @@ function HighLowFetcher(props){
     const [Low,setLow] = useState(0);
     const [First,setFirst] = useState(0);
     const [Last,setLast] = useState(0);
-    var currency = '$'
+    var cur = localStorage.getItem('cur');
     var sym = props.sym;
 
     var positive = {
@@ -23,7 +24,7 @@ function HighLowFetcher(props){
     useEffect(()=>{
         const fetcher = async ()=>{
             try {
-                var url = `https://min-api.cryptocompare.com/data/v2/histominute?fsym=${sym}&tsym=USD&limit=60`;
+                var url = `https://min-api.cryptocompare.com/data/v2/histominute?fsym=${sym}&tsym=${curchange}&limit=60`;
                 const response = await axios.get(url)
                 var length = response.data.Data.Data.length;
                 setLast((response.data.Data.Data[length-1].close))
@@ -47,13 +48,13 @@ function HighLowFetcher(props){
     return(
         <>
             <div>
-            <h6>High : {currency}{High}</h6>
-            <h6>Low : {currency}{Low}</h6>
+            <h6>High : {cursymbol}{High}</h6>
+            <h6>Low : {cursymbol}{Low}</h6>
             </div>
 
             <div>
             <h6>change : <span style={change<0?negative:positive}>{change}%</span></h6>
-            <h6>Average : {currency}{((First+Last)/2).toFixed(2)}</h6>
+            <h6>Average : {cursymbol}{((First+Last)/2).toFixed(2)}</h6>
 
             </div>
         </>

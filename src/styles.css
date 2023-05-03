@@ -103,6 +103,12 @@ Footer{
     width: 15%;
     margin-bottom: 1%;
 }
+.curli{
+    padding: 10px;
+}
+.cur{
+    color: gray;
+}
 
 @media screen and (max-width:768px){
 

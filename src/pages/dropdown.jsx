@@ -2,14 +2,59 @@ import React from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import {useState} from "react"
+var curchange = "USD";
+var cursymbol = "$";
+var curs = ["INR","EUR","USD","AED","IDR","TWD","CNY","JPY"]
+
+var currencysymbol={
+        "INR":"₹",
+        "USD":"$",
+        "EUR":"€",
+        "AED":"AED",
+        "IDR":"IDR",
+        "TWD":"NT$",
+        "CNY":"CN¥",
+        "JPY":"¥"
+}
+
+var curfullname = {
+        "INR":"Indian Rupee",
+        "USD":"US Dollar",
+        "EUR":"Euro",
+        "AED":"United Arab Emirates Dirham",
+        "IDR":"Indonesian Rupiah",
+        "TWD":"New Taiwan Dollar",
+        "CNY":"Chinese Yuan",
+        "JPY":"Japnese Yen"
+}
+
+
 
 function Dropdown(){
-    const [cur,setcur] = useState("USD");
-    const [sel,setsel] = useState({
-        cur1 : "INR",
-        cur2 : "EUR",
-        cur3 : "BTC"
-    })
+    if(!localStorage.getItem("cur")){
+        localStorage.setItem("cur","USD");
+    }
+    else{
+        curchange = localStorage.getItem("cur");
+    }
+    cursymbol = currencysymbol[curchange];
+    const [cur,setcur] = useState(localStorage.getItem("cur"));
+
+    function returnCurMenu(array,index){
+        return(
+            <li className="curli">
+            <a class="dropdown-item" href="#"
+                onClick={()=>{
+                    localStorage.setItem("cur",array);
+                    curchange = array;
+                    setcur(array);
+                }}>
+                <span className="cur">{array}</span> &nbsp;&nbsp;&nbsp;{curfullname[array]}
+            </a>
+                
+            </li>   
+        )
+    }
 
     return(
         <div className="dropdown">
@@ -17,30 +62,12 @@ function Dropdown(){
                         {cur}
                     </button>
                     <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item" href="#"
-                             onClick={()=>{
-                                setcur(sel.cur1);
-                                setsel({cur1:cur,cur2:sel.cur2,cur3:sel.cur3})
-                            }}>
-                                {sel.cur1}
-                                </a>
-                            </li>
-                        <li><a class="dropdown-item" href="#"
-                        onClick={()=>{
-                            setcur(sel.cur2);
-                            setsel({cur1:sel.cur1,cur2:cur,cur3:sel.cur3})
-                        }}
-                        >{sel.cur2}</a></li>
-                        <li><a class="dropdown-item" href="#"
-                        onClick={()=>{
-                            setcur(sel.cur3);
-                            setsel({cur1:sel.cur1,cur2:sel.cur2,cur3:cur})
-                        }}
-                        >{sel.cur3}</a></li>
+                        {curs.map(returnCurMenu)}
                     </ul>
         </div>
     );
 }
 
 export default Dropdown;
+export {curchange};
+export {cursymbol};

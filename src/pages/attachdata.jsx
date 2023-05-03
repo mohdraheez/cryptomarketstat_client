@@ -1,6 +1,6 @@
 import React from "react";
 import prev from './previousentry';
-
+import { cursymbol } from "./dropdown";
 
 function convertor(elem){
     if(Number(elem)<1000000){
@@ -20,12 +20,10 @@ function convertor(elem){
 
 
 function eventHandler(sym,name){
-    console.log(sym)
     window.location.href = `/Details/${sym} ${name}`;
 }
 
 function Datacreator(props){
-    var sym = '$'
     var symbol = props.symbol
     var price = props.price
     var name = props.name;
@@ -65,11 +63,11 @@ function Datacreator(props){
         <tr className="tabledatacontent" name={props.symbol} onClick={()=>{eventHandler(symbol,name)}}>
         <td>{props.rank}</td>
         <td className="name"><img src={props.img} alt={props.symbol} className="logo"/> {props.name} <span>{props.symbol}</span></td>
-        <td style={Style}>{sym}{Number(props.price).toFixed(2)}</td>
+        <td style={Style}>{cursymbol}{Number(props.price).toFixed(2)}</td>
         <td style={Number(props.change24hr)>=0?positve:negative}>{Number(props.change24hr).toFixed(2)}%</td>
-        <td>{sym}{convertor(props.volume)}</td>
-        <td className="supply">{sym}{convertor(props.supply)}</td>
-        <td>{sym}{convertor(props.marketcap)}</td>
+        <td>{cursymbol}{convertor(props.volume)}</td>
+        <td className="supply">{cursymbol}{convertor(props.supply)}</td>
+        <td>{cursymbol}{convertor(props.marketcap)}</td>
         </tr>
     )
 }
