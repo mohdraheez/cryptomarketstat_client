@@ -7,17 +7,19 @@ import '../detail.css'
 
 function Detail(props){
     var param = useParams()
-    console.log(param.id)
+    var splitdata = param.id.split(' ');
+    var sym = splitdata[0];
+    var name = splitdata[1];
     return(
         <div>
-                <ReturnName symbol={param.id} className="DeatailData"/>
+                <ReturnName symbol={sym} name={name} className="DeatailData"/>
                 <div className="Detailcontent">
                     <div className="Detailcontentinnerdiv">
-                            <HighLowFetcher sym={param.id}/>
+                            <HighLowFetcher sym={sym}/>
                     </div>
 
                     <div className="graph">
-                        <CryptoChart sym={param.id}/>
+                        <CryptoChart sym={sym}/>
                     </div>
                 </div>
         </div>

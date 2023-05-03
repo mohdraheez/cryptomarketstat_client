@@ -11,7 +11,7 @@ function optionsetter(arr){
     var data = arr.name+"   "+arr.symbol
     return(
         <>
-            <option value={data} className="cryptoption" id={data}/>
+            <option key={arr.symbol} value={data} className="cryptoption" id={data}/>
         </>
         
     )
@@ -22,12 +22,11 @@ function Options(){
     const [loading,setloader] = useState(true);
 
     if(loading){
-        // var url= `https://coindekho.onrender.com/apidata`
-        var url= `https://coinsdekho.azurewebsites.net//apidata`
+        var url= `https://api.coinstats.app/public/v1/coins?skip=0&limit=2000&currency=USD`
 
         axios.get(url)
         .then(response =>{
-            setdata(response.data.data);
+            setdata(response.data.coins);
             setloader(false);
         })
         .catch(error=>console.log(error))

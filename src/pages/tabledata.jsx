@@ -5,10 +5,10 @@ import { useState, useEffect } from 'react'
 
 var switcher = 0;
 
-var indexvalue = 20
+var indexvalue = 100
 
 function Loader() {
-    indexvalue = indexvalue + 10;
+    indexvalue = indexvalue + 100;
     console.log(indexvalue)
 }
 
@@ -31,14 +31,16 @@ function remover() {
 function ReturnData(arr, index) {
     if (index < indexvalue) {
         return (
-            <Datacreator key={index}
+            <Datacreator 
+                key={arr.symbol}
+                img = {arr.icon}
                 rank={arr.rank}
                 name={arr.name}
-                supply={arr.supply}
-                price={arr.priceUsd}
-                change24hr={arr.changePercent24Hr}
-                volume={arr.volumeUsd24Hr}
-                marketcap={arr.marketCapUsd}
+                supply={arr.totalSupply}
+                price={arr.price}
+                change24hr={arr.priceChange1d}
+                volume={arr.volume}
+                marketcap={arr.marketCap}
                 symbol={arr.symbol}
             />
         )
@@ -73,11 +75,11 @@ function Tabledata() {
 
     useEffect(() => {
         // var url = `https://coindekho.onrender.com/apidata`
-        var url= "https://coinsdekho.azurewebsites.net/apidata"
         const fetchdata = async () => {
+         var url= `https://api.coinstats.app/public/v1/coins?skip=0&limit=${indexvalue}&currency=USD`
             axios.get(url)
                 .then((response) => {
-                    setdata(response.data.data)
+                    setdata(response.data.coins)
                     setloading(false);
                 })
                 .catch('error', (err) => {
@@ -200,25 +202,25 @@ function Tabledata() {
             break;
             case 1:data.sort((a,b) => b.rank-a.rank);
             break;
-            case 2:data.sort((a,b) => b.priceUsd-a.priceUsd);
+            case 2:data.sort((a,b) => b.price-a.price);
             break
-            case 3:data.sort((a,b) => a.priceUsd-b.priceUsd);
+            case 3:data.sort((a,b) => a.price-b.price);
             break;
-            case 4:data.sort((a,b) => b.changePercent24Hr-a.changePercent24Hr);
+            case 4:data.sort((a,b) => b.priceChange1d-a.priceChange1d);
             break
-            case 5:data.sort((a,b) => a.changePercent24Hr-b.changePercent24Hr);
+            case 5:data.sort((a,b) => a.priceChange1d-b.priceChange1d);
             break;
-            case 6:data.sort((a,b) => b.volumeUsd24Hr-a.volumeUsd24Hr);
+            case 6:data.sort((a,b) => b.volume-a.volume);
             break
-            case 7:data.sort((a,b) => a.volumeUsd24Hr-b.volumeUsd24Hr);
+            case 7:data.sort((a,b) => a.volume-b.volume);
             break;
-            case 8:data.sort((a,b) => b.marketCapUsd-a.marketCapUsd);
+            case 8:data.sort((a,b) => b.marketCap-a.marketCap);
             break;
-            case 9:data.sort((a,b) => a.marketCapUsd-b.marketCapUsd);
+            case 9:data.sort((a,b) => a.marketCap-b.marketCap);
             break;
-            case 10:data.sort((a,b) => Number(b.supply)-Number(a.supply));
+            case 10:data.sort((a,b) => Number(b.totalSupply)-Number(a.totalSupply));
             break;
-            case 11:data.sort((a,b) => a.supply-b.supply);
+            case 11:data.sort((a,b) => a.totalSupply-b.totalSupply);
             break;
             default:data.sort((a,b)=> a.rank-b.rank);
           }

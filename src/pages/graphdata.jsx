@@ -23,12 +23,8 @@ function HighLowFetcher(props){
     useEffect(()=>{
         const fetcher = async ()=>{
             try {
-                // var url = ` https://coindekho.onrender.com/apidatagraph/${sym}`;
-                
-                var url = `https://coinsdekho.azurewebsites.net/apidatagraph/${sym}`;
-
+                var url = `https://min-api.cryptocompare.com/data/v2/histominute?fsym=${sym}&tsym=USD&limit=60`;
                 const response = await axios.get(url)
-                console.log(response)
                 var length = response.data.Data.Data.length;
                 setLast((response.data.Data.Data[length-1].close))
                 setFirst((response.data.Data.Data[0].close))

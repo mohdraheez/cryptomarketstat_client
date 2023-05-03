@@ -1,5 +1,4 @@
 import React from "react";
-import ReturnImage from './fetchimg';
 import prev from './previousentry';
 
 
@@ -20,15 +19,16 @@ function convertor(elem){
 }
 
 
-function eventHandler(sym){
+function eventHandler(sym,name){
     console.log(sym)
-    window.location.href = `/Details/${sym}`;
+    window.location.href = `/Details/${sym} ${name}`;
 }
 
 function Datacreator(props){
     var sym = '$'
     var symbol = props.symbol
     var price = props.price
+    var name = props.name;
 
     
 
@@ -62,9 +62,9 @@ function Datacreator(props){
     
     
     return(
-        <tr className="tabledatacontent" name={props.symbol} onClick={()=>{eventHandler(symbol)}}>
+        <tr className="tabledatacontent" name={props.symbol} onClick={()=>{eventHandler(symbol,name)}}>
         <td>{props.rank}</td>
-        <td className="name"><ReturnImage sym={props.symbol} class="logo"/> {props.name} <span>{props.symbol}</span></td>
+        <td className="name"><img src={props.img} alt={props.symbol} className="logo"/> {props.name} <span>{props.symbol}</span></td>
         <td style={Style}>{sym}{Number(props.price).toFixed(2)}</td>
         <td style={Number(props.change24hr)>=0?positve:negative}>{Number(props.change24hr).toFixed(2)}%</td>
         <td>{sym}{convertor(props.volume)}</td>
