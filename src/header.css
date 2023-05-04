@@ -7,6 +7,7 @@
     top: 0;
     z-index:1;
     background-color:white;
+    border-bottom: 2px solid #F0F0F0;
     /* box-shadow: 0 0 8px 1px rgb(0,0,0,0.3);  */
 }
 
@@ -26,9 +27,11 @@
 
 .heading h1{
     margin:0;
+    margin-left: 3px;
     display:inline;
     font-weight: bold;
-    font-size:25px;
+    font-size:20px;
+    color:#3C486B;
 }
 
 .searchcontainer{
@@ -44,8 +47,8 @@
 
 
 .search{
-    background-color: transparent;
-    border:1.5px solid black;
+    background-color: #F0F0F0;
+    border:transparent;
     padding: 3%;
     padding-left: 10%;
     color:black;
@@ -57,7 +60,7 @@
 }
 
 .search::placeholder{
-    color:black;
+    color:gray;
 }
 
 .search:focus{
@@ -99,6 +102,12 @@
 }
 
 @media screen and (max-width:768px){
+
+    .header{
+        padding-top: 10px;
+        padding-bottom: 50px;
+
+    }
     .searchcontainer{
         width: 250px;
         left: 30%;

@@ -43,7 +43,7 @@ function Dropdown(){
     function returnCurMenu(array,index){
         return(
             <li className="curli">
-            <a class="dropdown-item" href="#"
+            <a className="dropdown-item" href="#"
                 onClick={()=>{
                     localStorage.setItem("cur",array);
                     curchange = array;
@@ -58,10 +58,10 @@ function Dropdown(){
 
     return(
         <div className="dropdown">
-                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button className="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {cur}
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul className="dropdown-menu">
                         {curs.map(returnCurMenu)}
                     </ul>
         </div>

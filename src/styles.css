@@ -86,6 +86,7 @@ td,th{
 }
 
 Footer{
+    margin: 0;
     margin-top: 2%;
     padding: 2.5%;
     background-color: white;
@@ -142,23 +143,58 @@ Footer{
         margin-top: 6%;
         width: 35%;
     }
-    .name{
-        display: flex;
-        flex-direction: column;
-        color:#2600ff;
-        }
+
     .home{
         margin-top: 2%;
     }
 
     .home table{
-        width: 95%;
+        position: relative;
+        left: 85%;
+        width: 1000px;
         font-size: .85rem;
+        border-collapse: collapse;
+    }
+    th:first-child{
+        position: sticky;
+        left: 0%;
+        background-color: white;
     }
 
-    .supply{
-        display: none;
+    th:nth-child(2){
+        position: sticky;
+        background-color: white;
+        left: 17.5%;
+        width: 16%;
     }
+    
+    td:first-child{
+        left: 0%;
+        position: sticky;
+        background-color: white;
+    }
+
+
+    
+    td:nth-child(2){
+        position: sticky;
+        background-color: white;
+        left: 17.5%;
+    }
+
+    tbody > tr:nth-child(even) > td:nth-child(2){
+        background-color: #F7F7F7;
+    }
+    tbody > tr:nth-child(even) > td:nth-child(1){
+        background-color: #F7F7F7;
+    }
+
+
+    /* .supply{
+        display: none;
+    } */
+
+
 
     .description{
         text-align: justify;

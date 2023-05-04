@@ -11,7 +11,7 @@ function Detail(props){
     var sym = splitdata[0];
     var name = splitdata[1];
     return(
-        <div>
+        <div className="Details">
                 <ReturnName symbol={sym} name={name} className="DeatailData"/>
                 <div className="Detailcontent">
                     <div className="Detailcontentinnerdiv">
