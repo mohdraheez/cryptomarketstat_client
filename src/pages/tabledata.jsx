@@ -43,6 +43,7 @@ function ReturnData(arr, index) {
                 volume={arr.volume}
                 marketcap={arr.marketCap}
                 symbol={arr.symbol}
+                id={arr.id}
             />
         )
     }

@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from './../images/logo.png';
+import logo from './../images/logo.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
@@ -47,7 +47,7 @@ function Header() {
                 <h1>CoinsDekho</h1>
             </div>
             <div className="searchcontainer">
-                <FontAwesomeIcon icon={faMagnifyingGlass} className="searchicon"  onClick={searchhandler}/>
+                {/* <FontAwesomeIcon icon={faMagnifyingGlass} className="searchicon"  onClick={searchhandler}/> */}
                     <Options/>
             </div>
 
@@ -55,9 +55,9 @@ function Header() {
                 <Dropdown />
             </div>
 
-            <div className="Account">
+            {/* <div className="Account">
                 <FontAwesomeIcon icon={faUser} className="searchicon"/>
-            </div>
+            </div> */}
         </header>
     );
 }

@@ -19,14 +19,15 @@ function convertor(elem){
 }
 
 
-function eventHandler(sym,name){
-    window.location.href = `/Details/${sym} ${name}`;
+function eventHandler(sym,id){
+    window.location.href = `/Details/${sym} ${id}`;
 }
 
 function Datacreator(props){
     var symbol = props.symbol
     var price = props.price
     var name = props.name;
+    var id = props.id;
 
     
 
@@ -60,7 +61,7 @@ function Datacreator(props){
     
     
     return(
-        <tr className="tabledatacontent" name={props.symbol} onClick={()=>{eventHandler(symbol,name)}}>
+        <tr className="tabledatacontent" name={props.symbol} onClick={()=>{eventHandler(symbol,id)}}>
         <td>{props.rank}</td>
         <td className="name"><img src={props.img} alt={props.symbol} className="logo"/> {props.name} <span>{props.symbol}</span></td>
         <td style={Style}>{cursymbol}{Number(props.price).toFixed(2)}</td>

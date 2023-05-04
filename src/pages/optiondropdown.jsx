@@ -37,15 +37,17 @@ function Options(){
             </>
         )
     }
+
     if(arr.length===0){
         data.map(arraycreator)
     }
 
     function suggestionselected(e){
-        var data = e;
     var val =e.split(" ")
-    var length = val.length;
-    window.location.href = `/Details/${val[0].toUpperCase()} ${val[length-1]}`;
+    var val2 = data.find(elem =>elem.symbol===val[0]);
+    var val2 = val2.id;
+    console.log(val2);
+    window.location.href = `/Details/${val[0].toUpperCase()} ${val2}`;
     }
 
     function renderSuggestion(suggestion) {

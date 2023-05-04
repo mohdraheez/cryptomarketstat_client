@@ -1,9 +1,9 @@
 .middlelayer{
-    margin-top: 10px;
-    margin-left: 10%;
+    margin-top: 8vh;
+    margin-left: 2.5%;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     background:white;
-    margin-right: 10%;
+    margin-right: 2.5%;
     height: 65px;
     border-radius: 5px;
     color:black;
@@ -50,8 +50,9 @@
     }
 }
 
-@media screen and (max-width:360px) {
+@media screen and (max-width:380px) {
     .middlelayer{
+        margin-top:10vh;
         margin-left: 2.5%;
         margin-right: 2.5%;
         font-size: .85rem;

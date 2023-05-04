@@ -13,7 +13,7 @@
 }
 
 .home table{
-    width: 80%;
+    width: 95%;
 }
 
 .showmorebtn{
@@ -55,7 +55,6 @@
     position: relative;
     box-shadow: 2px 2px 10px  rgba(0, 0, 0, 0.2);
     top:10px;
-    z-index: -1;
 }
 
 .tabledatacontent{
@@ -105,7 +104,7 @@ Footer{
 }
 
 .footerimg{
-    width: 15%;
+    width: 5%;
     margin-bottom: 1%;
 }
 .curli{
@@ -159,6 +158,11 @@ Footer{
 
     .supply{
         display: none;
+    }
+
+    .description{
+        text-align: justify;
+        font-size: 10px;
     }
 
 }

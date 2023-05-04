@@ -1,12 +1,13 @@
 .header{
     width:100%;
     height:7vh;
-    margin: 0 auto;
+    /* color: rgb(255, 255, 255,0.83); */
     padding-bottom: 60px;
-    /* position: fixed; */
-    background-color: white;
-    box-shadow: 0 0 4px rgb(0,0,0,0.2); 
-
+    position:fixed;
+    top: 0;
+    z-index:1;
+    background-color:white;
+    /* box-shadow: 0 0 8px 1px rgb(0,0,0,0.3);  */
 }
 
 .header img{
@@ -15,29 +16,27 @@
     /* position: fixed; */
 }
 .heading{
-
     margin-top:  5px;
     margin-left: 3%;
     display:flex;
     align-items: center;
     justify-content: center;
     float: left;
-    display: inline;
-    
 }
 
 .heading h1{
+    margin:0;
     display:inline;
-    font-size:larger;
+    font-weight: bold;
+    font-size:25px;
 }
 
 .searchcontainer{
     float:left;
     margin-top:10px;
-    width: 500px;
-    max-width: 400px;
+    width: 250px;
     position: absolute;
-    left: 17%;
+    left: 20%;
 }
 .searchcontainer *{
     display:inline;
@@ -45,13 +44,13 @@
 
 
 .search{
-    background-color: #edeced;
-    border-color: transparent;
-    padding: 1.5%;
+    background-color: transparent;
+    border:1.5px solid black;
+    padding: 3%;
     padding-left: 10%;
     color:black;
-    width: 80%;
-    border-radius: 20px;
+    width: 100%;
+    border-radius: 5px;
     display:inline;
     z-index: 1;
 
@@ -101,9 +100,7 @@
 
 @media screen and (max-width:768px){
     .searchcontainer{
-        width: 80%;
-        max-width: 280px;
-        min-width: 50px;
+        width: 250px;
         left: 30%;
     }
 
@@ -111,13 +108,6 @@
         padding-left: 14%;
     }
     
-    .rightcontainer{
-        margin-right:7%;
-    }
-
-    .rightcontainer{
-        margin-right:9%;
-    }
     .Account{
         left:9%;
     }
@@ -127,48 +117,55 @@
 
 
     .header img{
-        height:45px;
-    }
-
-    .search{
-        display: none;
-    }
-
-    .searchcollapse{
-        display: block;
-        padding-left: 30%;
-        font-size: small;
+        height:40px;
     }
 
     .searchcontainer{
-        float: right;
-        display:flex;
-        align-items: center;
-        height: 35px;
-        position: relative;
-        transition: width .3s ease-in-out;
-        left: -12%;
-        width: 15%;
+        width: 180px;
+        left: 40%;
     }
 
-    .searchcontainercollapse{
-        transition: width .3s ease-in-out;
-        width: 45%;
-    }
+    .searchicon{
+        display: none;
+    } 
+
 
     
     .rightcontainer{
         position: absolute;
-        left: 60%;
-    }
-
-    .rightcontainercollapse{
-        display:none;
+        left: 85%;
     }
     .Account{
         position:absolute;
         left:85%;
     }
+}
+
+@media screen and (max-width:440px){
+    .rightcontainer{
+        position: absolute;
+        left: 79%;
+    }
+
+    .heading h1{
+        font-size:20px;
+    }
+
+    
+    .searchcontainer{
+        max-width: 140px;
+        left: 40%;
+    }
+
+}
+
+@media screen and (max-width:360px){
+    
+    .searchcontainer{
+        left: 48%;
+        max-width: 100px;
+    }
+
 }
 
 @media screen and (max-width:280px){
@@ -183,11 +180,16 @@
     
     .rightcontainer{
         position: absolute;
-        left: 55%;
+        left: 78%;
     }
     .Account{
         position:absolute;
         left:80%;
+    }
+
+    .searchcontainer{
+        left: 50%;
+        max-width: 80px;
     }
 }
 
