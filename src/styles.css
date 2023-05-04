@@ -44,8 +44,9 @@
 }
 
 .tableHead{
+
     height: 40px;
-    background:white;
+    background:#F0F0F0;
     color:black;
     box-shadow: 1px 1px 5px  rgba(0, 0, 0, 0.2);
     z-index:-1;
@@ -68,7 +69,7 @@
 }
 
 tr:nth-child(even){
-    background-color: transparent;
+    background-color: #F0F0F0;
 }
 
 .tabledatacontent:hover{
@@ -86,7 +87,6 @@ td,th{
 }
 
 Footer{
-    margin: 0;
     margin-top: 2%;
     padding: 2.5%;
     background-color: white;
@@ -137,64 +137,44 @@ Footer{
     background-color: white;
 }
 
+.rankdata{
+    
+}
+
+.rankdata > span{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.like{
+    width: 15px;
+}
+
 @media screen and (max-width:768px){
 
     .showmorebtn{
         margin-top: 6%;
         width: 35%;
     }
-
+    .name{
+        display: flex;
+        flex-direction: column;
+        color:#2600ff;
+        }
     .home{
         margin-top: 2%;
     }
 
     .home table{
-        position: relative;
-        left: 85%;
-        width: 1000px;
+        width: 95%;
         font-size: .85rem;
-        border-collapse: collapse;
-    }
-    th:first-child{
-        position: sticky;
-        left: 0%;
-        background-color: white;
     }
 
-    th:nth-child(2){
-        position: sticky;
-        background-color: white;
-        left: 17.5%;
-        width: 16%;
-    }
-    
-    td:first-child{
-        left: 0%;
-        position: sticky;
-        background-color: white;
-    }
-
-
-    
-    td:nth-child(2){
-        position: sticky;
-        background-color: white;
-        left: 17.5%;
-    }
-
-    tbody > tr:nth-child(even) > td:nth-child(2){
-        background-color: #F7F7F7;
-    }
-    tbody > tr:nth-child(even) > td:nth-child(1){
-        background-color: #F7F7F7;
-    }
-
-
-    /* .supply{
+    .supply{
         display: none;
-    } */
-
-
+    }
 
     .description{
         text-align: justify;
@@ -211,6 +191,9 @@ Footer{
         overflow-y:auto;
     }
 
+    .home thead{
+        font-size: .65rem;
+    }
     .suggestion{
         padding:5px;
     }
@@ -225,4 +208,3 @@ Footer{
         font-size: .6rem;
     }
 }
-

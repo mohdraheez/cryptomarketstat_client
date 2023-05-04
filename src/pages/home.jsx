@@ -7,8 +7,8 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 
 function Home(){
     return(
-        <div className='home table-responsive'>
-            <table>
+        <div className='home'>
+            <table className=''>
                 <thead className='tableHead'>
                     <TableHead/>
                 </thead>

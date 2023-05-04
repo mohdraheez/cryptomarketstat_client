@@ -16,7 +16,6 @@
 
 .detailheader{
     display: flex;
-    margin-top:7vh;
     /* background-color: #BBE1FA; */
     background-color: #30475E;
     color:black;
@@ -42,6 +41,7 @@
     justify-content: space-around;
     /* background-color:white; */
     background-color: rgba(35, 35, 35, 0.719);
+    background-color: #394867;
     color: black;
     color:white;
     width: 60%;

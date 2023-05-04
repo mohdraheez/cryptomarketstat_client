@@ -1,14 +1,14 @@
 .middlelayer{
-    margin-top: 8vh;
-    margin-left: 2.5%;
+    margin-top: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    background:white;
-    margin-right: 2.5%;
     height: 65px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
     border-radius: 5px;
-    color:black;
+    color:white;
     font-size: 1.1rem;
     z-index:-1;
+    background-color: #30475E;
 }
 
 .navitems{
@@ -52,7 +52,6 @@
 
 @media screen and (max-width:380px) {
     .middlelayer{
-        margin-top:10vh;
         margin-left: 2.5%;
         margin-right: 2.5%;
         font-size: .85rem;
