@@ -3,14 +3,14 @@ import Datacreator from './attachdata'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { curchange } from './dropdown'
+import { clear } from '@testing-library/user-event/dist/clear'
 
 var switcher = 0;
-
+var firstload = 0;
 var indexvalue = 100
 
 function Loader() {
     indexvalue = indexvalue + 100;
-    console.log(indexvalue)
 }
 
 function remover() {
@@ -33,7 +33,7 @@ function ReturnData(arr, index) {
     if (index < indexvalue) {
         return (
             <Datacreator 
-                key={arr.symbol}
+                key={arr.symbol+index}
                 img = {arr.icon}
                 rank={arr.rank}
                 name={arr.name}
@@ -49,9 +49,9 @@ function ReturnData(arr, index) {
     }
 }
 
-function offlinedata() {
+function offlinedata(arr,index) {
     return (
-        <tr className="tabledatacontent">
+        <tr className="tabledatacontent" key={index}>
             <td></td>
             <td></td>
             <td></td>
@@ -75,17 +75,26 @@ function Tabledata() {
 
 
     useEffect(() => {
-        const fetchdata = async () => {
+        const fetchdata = () => {
          var url= `https://api.coinstats.app/public/v1/coins?skip=0&limit=${indexvalue}&currency=${curchange}`
             axios.get(url)
                 .then((response) => {
                     setdata(response.data.coins)
+                    if(loading)
                     setloading(false);
+
                 })
                 .catch('error', (err) => {
                     console.log(err)
                 })
+                
         }
+
+        if(firstload===0){
+            firstload=1;
+             fetchdata();
+        }
+
 
         document.querySelector('.showmorebtn').addEventListener('click', () => {
             Loader();
@@ -180,23 +189,22 @@ function Tabledata() {
             fetchdata();
         })
 
-        const caller = setInterval(fetchdata, 1000);
-        fetchdata();
-        return () => clearInterval(caller);
-
+        const setter = setInterval(fetchdata,500);
+        return() => clearInterval(setter); 
         // console.log(data);
 
-    }, [])
+    },[])
 
 
     
 
-    if (loading)
+    if (loading){
         return (
             <>
                 {offline.map(offlinedata)}
             </>
         )
+    }
         switch(switcher){
             case 0: data.sort((a,b)=> a.rank-b.rank);
             break;

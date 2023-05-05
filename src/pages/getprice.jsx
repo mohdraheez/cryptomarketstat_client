@@ -11,7 +11,7 @@ function UpdatePrice(props){
             const response = await axios.get(url)
             setPrice(response.data[cur])
         }
-        var caller = setInterval(fetchprice,500);
+        var caller = setInterval(fetchprice,350);
         fetchprice();
         return()=> clearInterval(caller);
     })

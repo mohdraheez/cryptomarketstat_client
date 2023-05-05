@@ -38,7 +38,7 @@ function HighLowFetcher(props){
         }
 
 
-        var fetchdata = setInterval(fetcher, 1000);
+        var fetchdata = setInterval(fetcher, 500);
         fetcher();
         return ()=> clearInterval(fetchdata)
     },[])

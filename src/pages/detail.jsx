@@ -15,11 +15,11 @@ function Detail(props){
                 <ReturnName symbol={sym} name={name} className="DeatailData"/>
                 <div className="Detailcontent">
                     <div className="Detailcontentinnerdiv">
-                            <HighLowFetcher sym={sym}/>
+                            <HighLowFetcher key={sym} sym={sym}/>
                     </div>
 
                     <div className="graph">
-                        <CryptoChart sym={sym}/>
+                        <CryptoChart key={sym} sym={sym}/>
                     </div>
                 </div>
         </div>

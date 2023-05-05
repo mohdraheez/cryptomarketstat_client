@@ -16,7 +16,7 @@
     width: 95%;
 }
 
-.showmorebtn{
+.showmorebtn ,.newsshowmorebtn{
     margin-top: 2.5%;
     background-color:rgb(3, 201, 136,.7);
     width: 15%;
@@ -26,7 +26,7 @@
     color:white;
 }
 
-.showmorebtn:hover{
+.showmorebtn:hover,.newsshowmorebtn{
     background-color:rgb(3, 201, 136,1);
 }
 
@@ -150,6 +150,47 @@ Footer{
 
 .like{
     width: 15px;
+}
+
+.news{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newsdata{
+    display: flex;
+    width: 80%;
+    padding: 1%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newsdata >h1{
+    font-size:30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color:#2600ff;
+}
+
+.newsimg{
+    width:70%;
+}
+
+.desc{
+    margin-top:1%;
+    width:70%;
+    text-align: justify;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.desc img{
+    width: 100px;
+}
+
+.desc a{
+    display: block;
+    width:70%;
 }
 
 @media screen and (max-width:768px){

@@ -7,7 +7,7 @@ import MiddleLayer from './pages/middlelayer';
 import Detail from './pages/detail';
 import './styles.css'
 import Footer from './pages/footer'
-
+import News from './pages/news'
 
 
 function App() {
@@ -31,6 +31,17 @@ function App() {
           }
         >    
         </Route>
+
+        <Route path='/news' 
+          element={
+            <>
+              <MiddleLayer />
+              <News/>
+            </>
+          }
+        >    
+        </Route>
+        
       </Routes>
       <Footer />
     </BrowserRouter>

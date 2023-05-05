@@ -10,10 +10,10 @@ function Home(){
         <div className='home'>
             <table className=''>
                 <thead className='tableHead'>
-                    <TableHead/>
+                    <TableHead key="tablehead"/>
                 </thead>
                 <tbody className='tableData'>
-                    <Tabledata/>
+                    <Tabledata key="tabledata"/>
                 </tbody>
             </table>
             <button className='showmorebtn' >

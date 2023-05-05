@@ -32,7 +32,7 @@ const CryptoChart = (props) => {
             }
           };
 
-          var fetcher = setInterval(fetchData,15000);
+          var fetcher = setInterval(fetchData,1000);
           fetchData();
           return()=>clearInterval(fetcher);
 

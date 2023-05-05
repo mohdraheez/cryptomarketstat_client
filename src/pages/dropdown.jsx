@@ -42,7 +42,7 @@ function Dropdown(){
 
     function returnCurMenu(array,index){
         return(
-            <li className="curli">
+            <li className="curli" key={index}>
             <a className="dropdown-item" href="#"
                 onClick={()=>{
                     localStorage.setItem("cur",array);

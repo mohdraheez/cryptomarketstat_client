@@ -28,7 +28,7 @@ function ReturnName(props){
             <img src={data.icon} class="detaillogo" /><h1>{data.name}</h1> <span>{props.symbol}</span>
             </div>
             <div>
-                <UpdatePrice sym={sym}/>
+                <UpdatePrice key={sym} sym={sym}/>
             </div>
         </div>
     );

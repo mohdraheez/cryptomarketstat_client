@@ -23,13 +23,6 @@ function convertor(elem){
     }
     return elem;
 }
-// if(document.querySelector('.whishlist')){
-// document.querySelector('.whishlist').addEventListener('click',()=>{
-//     document.querySelector('.selected').classList.remove('selected');
-//     document.querySelector('.whishlist').classList.add('selected')
-// })
-// }
-
 function displayonwish(){
     page = "wishlist"
     document.querySelector('.selected').classList.remove('selected');

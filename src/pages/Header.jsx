@@ -21,11 +21,11 @@ function Header() {
         <header className="header">
             <div className='heading'>
                 <img src={logo} alt="logo" />
-                <h1>CoinsDekho</h1>
+                <h1>CryptoMarketStat</h1>
             </div>
             <div className="searchcontainer">
                 {/* <FontAwesomeIcon icon={faMagnifyingGlass} className="searchicon"  onClick={searchhandler}/> */}
-                    <Options/>
+                    <Options />
             </div>
 
             <div className="rightcontainer">
