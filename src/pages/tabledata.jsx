@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { curchange } from './dropdown'
 import { clear } from '@testing-library/user-event/dist/clear'
+import { useParams } from 'react-router-dom'
 
 var switcher = 0;
 var firstload = 0;
@@ -12,6 +13,8 @@ var indexvalue = 100
 function Loader() {
     indexvalue = indexvalue + 100;
 }
+
+
 
 function remover() {
     document.querySelector('.rankdown').style.display = "none";
@@ -71,6 +74,11 @@ function Tabledata() {
 
     for (var i = 0; i < indexvalue; i++) {
         offline.push('Loading')
+    }
+    
+    var params = useParams();
+    if(params.id === 'wishlist'){
+        indexvalue = 2000;
     }
 
 

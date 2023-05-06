@@ -4,8 +4,7 @@ import { cursymbol } from "./dropdown";
 import star from '../images/star.png'
 import starhover from '../images/starhover.png'
 import starselected from '../images/starselected.png'
-import { json } from "react-router-dom";
-
+import { json, useParams } from "react-router-dom";
 var page = "topcoins"
 
 function convertor(elem){
@@ -23,6 +22,14 @@ function convertor(elem){
     }
     return elem;
 }
+
+function clickonwish(){
+    window.location = '/wishlist';
+}
+function clickontop(){
+        window.location = '/';
+}
+
 function displayonwish(){
     page = "wishlist"
     document.querySelector('.selected').classList.remove('selected');
@@ -96,6 +103,15 @@ function Datacreator(props){
     var name = props.name;
     var id = props.id;
     var str = symbol +" "+ id;
+    var param = useParams();
+
+    if(param.id==="wishlist"){
+        displayonwish();
+    }
+
+    if(param.id===""){
+        displayontop();
+    }
 
     if(localStorage.getItem("whish")){
         var str = symbol + " "+ id
@@ -173,5 +189,5 @@ function Datacreator(props){
 }
 
 export default Datacreator;
-export {displayonwish}
-export {displayontop}
+export {clickonwish}
+export {clickontop}

@@ -19,10 +19,15 @@ function App() {
           <>
             <MiddleLayer/>
             <Home/>
-            
           </>
         }>
         </Route>
+        <Route path="/:id" element={
+          <>
+            <MiddleLayer/>
+            <Home/>
+          </>
+        }></Route>
         <Route path='/Details/:id' 
           element={
             <>

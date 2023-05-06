@@ -23,11 +23,32 @@ function News(){
 
 
     return(
+        <div >
+            <nav className="newsnav">
+                <ul className="navitems newsitems">
+                    <li className="select list1">
+                        Latest
+                    </li>
+                    <li className="list2">
+                        Handpicked
+                    </li>
+                    <li className="list3">
+                        Trending
+                    </li>
+                    <li className="list4">
+                        Bullish
+                    </li>
+                    <li className="list5">
+                        Bearish
+                    </li>
+                </ul>
+            </nav>
         <div className="news">
             <Newsdata />
             <button className='newsshowmorebtn' >
                 Nextpage
             </button>
+        </div>
         </div>
     )
 }

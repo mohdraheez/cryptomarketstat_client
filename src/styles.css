@@ -137,10 +137,6 @@ Footer{
     background-color: white;
 }
 
-.rankdata{
-    
-}
-
 .rankdata > span{
     display: flex;
     align-items: center;
@@ -156,32 +152,68 @@ Footer{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 5%;
+}
+
+.newsitems{
+    justify-content: center;
+}
+
+.newsitems >li{
+    background-color: #C9EEFF;
+    color:black;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .newsdata{
     display: flex;
     width: 80%;
     padding: 1%;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    border-bottom: 1px solid black;
 }
 
-.newsdata >h1{
+.content{
+    padding: 1%;
+    margin-left: 5%;
+}
+
+.newstitle{
+    text-align: justify;
     font-size:30px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
-    color:#2600ff;
+}
+
+.titlelink{
+    text-decoration:none;
+    color: black;
 }
 
 .newsimg{
-    width:70%;
+    width:20%;
+}
+
+.source{
+    color:#E76161;
+    font-weight: bold;
+}
+
+.date ,.related{
+    color: #9BA4B5;
 }
 
 .desc{
     margin-top:1%;
-    width:70%;
     text-align: justify;
     font-family: 'Times New Roman', Times, serif;
+}
+
+.readmore{
+    text-decoration: none;
+    color: black;
 }
 
 .desc img{
@@ -222,6 +254,20 @@ Footer{
         font-size: 10px;
     }
 
+    .newsdata{
+        flex-direction: column;
+    }
+
+    .content >h1{
+        text-align: justify;
+        font-size:22px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+    }
+
+    .newsimg{
+        width:50%;
+    }
 }
 
 @media screen and (max-width:600px) {
@@ -232,12 +278,42 @@ Footer{
         overflow-y:auto;
     }
 
+
     .home thead{
         font-size: .65rem;
     }
     .suggestion{
         padding:5px;
     }
+
+    .newsdata{
+        width: 100%;
+    }
+
+    .newsimg{
+        width:85%;
+        border-radius: 10px;
+    }
+
+    .content{
+        padding: 1%;
+        width: 85%;
+        margin-left: 0%;
+    }
+
+    .newsnav{
+
+    }
+
+    .newsnav >ul{
+        font-size: small;
+    }
+
+    .newsnav >ul>li{
+        padding:3%;
+    }
+
+
 }
 @media screen and (max-width:360px){
     .home table{
@@ -248,4 +324,16 @@ Footer{
     .home thead{
         font-size: .6rem;
     }
+
+    .newsnav >ul>li{
+        padding:2%;
+    }
+    
+}
+
+@media screen and (max-width:279px){
+    .newsnav >ul>li{
+        padding:1.5%;
+    }
+    
 }

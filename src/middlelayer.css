@@ -37,7 +37,7 @@
 
 }
 
-.selected{
+.selected,.select{
     border-bottom: 3px solid #57C5B6; 
     z-index:-1;
 }
