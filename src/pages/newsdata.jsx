@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 import he from 'he';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 var trend = ``;
 
@@ -46,18 +48,19 @@ function newsattacher(arr, index) {
 
     if (source[0] != "Reddit") {
         return (
-            <div className="newsdata" key={index} >
+            <div className="newsdata bg-secondary" key={arr.title} >
                 <img src={arr.imgURL} alt='img' className='newsimg' style={style}></img>
 
-                <div className='content'>
+                <div className='newscontent'>
                     <span ><span className='source'>{arr.source}</span> <span className='date'>Updated:{minute}minutes ago</span></span>
-                    <a href={arr.link} className='titlelink'><h1 className="newstitle">{arr.title}</h1></a>
+                    <a href={arr.link} className='titlelink'><h1 className="newstitle text-white">{arr.title}</h1></a>
                     <div className='desc' dangerouslySetInnerHTML={Descsender(ddesc)}>
+                    
                     </div>
                     <a href={arr.link} className='readmore'>Click here to read more</a>
-                    <p className='related'>
+                    <p className='related' >
                         related coins : {arr.relatedCoins.map((arr, index) => {
-                            return (<>{arr} </>)
+                            return (<span key={arr} >{arr} </span>)
                         })}
                     </p>
                 </div>
@@ -134,7 +137,7 @@ function Newsdata() {
 
     if (loading) {
         return (
-            <div>
+            <div key="loading">
                 loading
             </div>
         )

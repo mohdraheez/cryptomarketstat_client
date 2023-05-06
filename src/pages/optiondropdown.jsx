@@ -3,8 +3,11 @@ import { useState } from "react";
 import {useEffect} from "react";
 import axios from "axios";
 import Autosuggest from 'react-autosuggest';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 import '../styles.css'
 var arr = [];
+var img = [];
 
 
 function Options(){
@@ -16,6 +19,10 @@ function Options(){
 
 
     function arraycreator(ar,index){
+        var obj = {}
+        obj.sym = data[index].symbol;
+        obj.img = data[index].icon;
+        img.push(obj)
         arr.push(data[index].symbol+" "+data[index].name)
     }
 
@@ -51,8 +58,8 @@ function Options(){
     }
 
     function renderSuggestion(suggestion) {
-        
-        return <div className="suggestion" onClick={()=>{suggestionselected(suggestion)}}>{suggestion}</div>;
+        var url = img.find(obj =>obj.sym ===suggestion.split(' ')[0]);
+        return <div className="suggestion bg-dark text-light" onClick={()=>{suggestionselected(suggestion)}}>{suggestion}<div><img className="sugimg" src={url.img} alt={url.sym}></img></div></div>;
       }
 
 
@@ -80,14 +87,14 @@ function Options(){
         renderSuggestion={renderSuggestion}
 
         inputProps={{
-          placeholder: 'search',
+          placeholder: 'Search',
           value: value,
-          className:"search",
+          className:"search form-control mr-sm-2 bg-dark text-light",
           onChange: onChange,
         }}
 
         theme={
-            {suggestionsContainer:'suggestionbox'}
+            {suggestionsContainer:'suggestionbox dropdown'}
         }
       />
     )

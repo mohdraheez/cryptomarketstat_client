@@ -1,8 +1,10 @@
 import React from "react";
 import logo from "./../images/logo.webp"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 function Footer(){
     return(
-        <footer>
+        <footer className="Footer bg-secondary text-light">
             <div className="footerheading">
             <img src={logo} className="footerimg"></img>
             <h1>CryptoMarketStat</h1>

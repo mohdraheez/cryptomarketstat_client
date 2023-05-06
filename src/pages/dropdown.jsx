@@ -4,13 +4,12 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import {useState} from "react"
 var curchange = "USD";
 var cursymbol = "$";
-var curs = ["INR","EUR","USD","AED","IDR","TWD","CNY","JPY"]
+var curs = ["INR","EUR","USD","IDR","TWD","CNY","JPY"]
 
 var currencysymbol={
         "INR":"₹",
         "USD":"$",
         "EUR":"€",
-        "AED":"AED",
         "IDR":"IDR",
         "TWD":"NT$",
         "CNY":"CN¥",
@@ -21,7 +20,6 @@ var curfullname = {
         "INR":"Indian Rupee",
         "USD":"US Dollar",
         "EUR":"Euro",
-        "AED":"United Arab Emirates Dirham",
         "IDR":"Indonesian Rupiah",
         "TWD":"New Taiwan Dollar",
         "CNY":"Chinese Yuan",
@@ -57,8 +55,8 @@ function Dropdown(){
     }
 
     return(
-        <div className="dropdown">
-                    <button className="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <div className="dropdown bg-secondary ">
+                    <button className="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {cur}
                     </button>
                     <ul className="dropdown-menu">

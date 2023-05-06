@@ -136,20 +136,20 @@ function Datacreator(props){
     }
 
     if (prev.hasOwnProperty(symbol)) {
-        if(Number(price).toFixed(3)===prev[symbol]){
-            Style.color="black";
+        if(Number(price).toFixed(6)===prev[symbol]){
+            Style.color="white";
         }
-        else if(Number(price).toFixed(3)>prev[symbol]){
+        else if(Number(price).toFixed(6)>prev[symbol]){
             Style.color = "#03C988"
         }
         else{
             Style.color ="#FF8787";
         }
-        prev[symbol] = Number(price).toFixed(3);
+        prev[symbol] = Number(price).toFixed(6);
 
     }
     else{
-        prev[symbol] = Number(price).toFixed(3);
+        prev[symbol] = Number(price).toFixed(6);
     }
 
 
@@ -160,8 +160,8 @@ function Datacreator(props){
     return(
         <tr className="tabledatacontent" name={props.symbol} onClick={(e)=>{eventHandler(e,symbol,id)}}>
         <td className="rankdata"><span><img src={star} alt={param.id==="wishlist"?"liked":"like"} className="like" id={props.symbol} onMouseEnter={addhover} onMouseLeave={removehover} onClick={(e)=>{addclicked(e,symbol,id)}}></img>{props.rank}</span></td>
-        <td className="name"><img src={props.img} alt={props.symbol} className="logo"/> {props.name} <span>{props.symbol}</span></td>
-        <td style={Style}>{cursymbol}{Number(props.price).toFixed(2)}</td>
+        <td className="name"><img src={props.img} alt={props.symbol} className="logo"/><span className="namespan">{props.name}  <span className="sym">{props.symbol}</span></span></td>
+        <td style={Style}>{cursymbol}{Number(props.price)<1?Number(props.price).toFixed(8):Number(props.price).toFixed(2)}</td>
         <td style={Number(props.change24hr)>=0?positve:negative}>{Number(props.change24hr).toFixed(2)}%</td>
         <td>{cursymbol}{convertor(props.volume)}</td>
         <td className="supply">{convertor(props.supply)}</td>
