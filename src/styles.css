@@ -227,7 +227,7 @@ Footer{
 
 @media screen and (max-width:768px){
 
-    .showmorebtn{
+    .showmorebtn,.newsshowmorebtn{
         margin-top: 6%;
         width: 35%;
     }

@@ -8,7 +8,7 @@ import Detail from './pages/detail';
 import './styles.css'
 import Footer from './pages/footer'
 import News from './pages/news'
-
+import WishlistData from './pages/watchlistdata'
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
         <Route path="/:id" element={
           <>
             <MiddleLayer/>
-            <Home/>
+            <WishlistData/>
           </>
         }></Route>
         <Route path='/Details/:id' 

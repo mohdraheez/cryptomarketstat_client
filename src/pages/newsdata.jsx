@@ -33,11 +33,21 @@ function newsattacher(arr, index) {
     var minute = Math.floor(second/60);
     var source = arr.source;
     source = source.split(" ");
+    var src= arr.imgURL;
+    var splitsrc = src.split('/');
+    var style = {
+
+    }
+
+    if(splitsrc[splitsrc.length-1]==='undefined')
+        style.display = "none";
+
+    
 
     if (source[0] != "Reddit") {
         return (
             <div className="newsdata" key={index} >
-                <img src={arr.imgURL} alt='img' className='newsimg'></img>
+                <img src={arr.imgURL} alt='img' className='newsimg' style={style}></img>
 
                 <div className='content'>
                     <span ><span className='source'>{arr.source}</span> <span className='date'>Updated:{minute}minutes ago</span></span>

@@ -151,11 +151,15 @@ function Datacreator(props){
     else{
         prev[symbol] = Number(price).toFixed(3);
     }
+
+
+    if(param.id==="wishlist"){
+        star = starselected
+    }
     
-    if(page==="topcoins"){
     return(
         <tr className="tabledatacontent" name={props.symbol} onClick={(e)=>{eventHandler(e,symbol,id)}}>
-        <td className="rankdata"><span><img src={star} alt="like" className="like" id={props.symbol} onMouseEnter={addhover} onMouseLeave={removehover} onClick={(e)=>{addclicked(e,symbol,id)}}></img>{props.rank}</span></td>
+        <td className="rankdata"><span><img src={star} alt={param.id==="wishlist"?"liked":"like"} className="like" id={props.symbol} onMouseEnter={addhover} onMouseLeave={removehover} onClick={(e)=>{addclicked(e,symbol,id)}}></img>{props.rank}</span></td>
         <td className="name"><img src={props.img} alt={props.symbol} className="logo"/> {props.name} <span>{props.symbol}</span></td>
         <td style={Style}>{cursymbol}{Number(props.price).toFixed(2)}</td>
         <td style={Number(props.change24hr)>=0?positve:negative}>{Number(props.change24hr).toFixed(2)}%</td>
@@ -164,28 +168,7 @@ function Datacreator(props){
         <td>{cursymbol}{convertor(props.marketcap)}</td>
         </tr>
     )
-    }
-    else if(page==="wishlist"){
-        if(localStorage.getItem("whish")){
-        var str = symbol + " "+ id
-        var string = localStorage.getItem("whish");
-        var arr = JSON.parse(string);
-        var index = arr.indexOf(str);
-        if(index!=-1){
-        return(
-            <tr className="tabledatacontent" name={props.symbol} onClick={(e)=>{eventHandler(e,symbol,id)}}>
-            <td className="rankdata"><span><img src={star} alt="like" className="like" id={props.symbol} onMouseEnter={addhover} onMouseLeave={removehover} onClick={(e)=>{addclicked(e,symbol,id)}}></img>{props.rank}</span></td>
-            <td className="name"><img src={props.img} alt={props.symbol} className="logo"/> {props.name} <span>{props.symbol}</span></td>
-            <td style={Style}>{cursymbol}{Number(props.price).toFixed(2)}</td>
-            <td style={Number(props.change24hr)>=0?positve:negative}>{Number(props.change24hr).toFixed(2)}%</td>
-            <td>{cursymbol}{convertor(props.volume)}</td>
-            <td className="supply">{convertor(props.supply)}</td>
-            <td>{cursymbol}{convertor(props.marketcap)}</td>
-            </tr>
-        )
-        }
-        }
-    }
+   
 }
 
 export default Datacreator;
