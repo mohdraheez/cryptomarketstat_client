@@ -55,11 +55,11 @@ function Dropdown(){
     }
 
     return(
-        <div className="dropdown bg-secondary ">
-                    <button className="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <div className="dropdown bg-secondary " data-bs-theme="dark">
+                    <button className="btn dropdown-toggle text-light" type="button" data-bs-toggle="dropdown" id="dropdownMenuButtonDark" aria-expanded="false">
                         {cur}
                     </button>
-                    <ul className="dropdown-menu">
+                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuButtonDark">
                         {curs.map(returnCurMenu)}
                     </ul>
         </div>
@@ -69,3 +69,6 @@ function Dropdown(){
 export default Dropdown;
 export {curchange};
 export {cursymbol};
+export {curs};
+export {curfullname};
+export {currencysymbol};

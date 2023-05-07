@@ -9,7 +9,7 @@ import './styles.css'
 import Footer from './pages/footer'
 import News from './pages/news'
 import WishlistData from './pages/watchlistdata'
-
+import CookieConsent from './pages/cookieconsent';
 function App() {
   return (
     <BrowserRouter >
@@ -49,6 +49,7 @@ function App() {
         </Route>
         
       </Routes>
+      <CookieConsent />
       <Footer />
       </div>
     </BrowserRouter>

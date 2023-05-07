@@ -1,6 +1,9 @@
 .Details{
-    height:100vh;
+    /* height:100vh; */
+    display:flex;
+    flex-direction: column;
 }
+
 .detaillogo{
     max-width: 45px;
 }
@@ -39,16 +42,13 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /* background-color:white; */
-    background-color: rgba(35, 35, 35, 0.719);
-    background-color: #394867;
-    color: black;
     color:white;
-    width: 60%;
+    width: 90%;
     flex-direction: row;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px  rgba(0, 0, 0, 0.3);
-    padding: 1%;
+    border-radius: 5px;
+    background-color: #2C3333;
+    box-shadow: 0px 0px 0px 1px  rgba(255, 255, 255, 0.3);
+    padding: 2%;
 }
 
 .graph{
@@ -68,13 +68,66 @@
     margin: 0;
 }
 
+.detaildesc{
+    display: flex;
+    /* height: 100vh; */
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    /* margin-bottom: 5%; */
+    /* box-shadow: 0px 0px 0px 1px  rgba(255, 255, 255, 0.3); */
+}
+
+.coindescription{
+    padding: 2%;
+    width:60%;
+    background-color: #2C3333;
+}
+
+.calculator{
+    width:30%;
+    height:250px;
+    align-items:center;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    border-radius: 10px;
+}
+.calcform{
+    display: flex;
+    flex-direction: column;
+}
+
+.calcform div{
+    display: flex;
+    margin: 1px;
+    justify-content: space-between;
+}
+
+.calcform div input{
+    outline: none;
+}
 .Rank{
+    display: flex;
+    align-items: center;
     padding: 2px;
     padding-left: 10px;
     padding-right: 10px;
     background-color:black;
     color:white;
     border-radius: 10px;
+}
+
+@media screen and (max-width : 1100px) {
+    .calculator{
+        width:40%;
+    }
+
+    .coindescription{
+        width:55%;
+    }
 }
 
 @media screen and (max-width : 768px) {
@@ -109,6 +162,33 @@
         width: 95%;
     }
 
+    .calculator{
+        width:70%;
+    }
+
+    .coindescription{
+        margin-top: 5%;
+        width:100%;
+    }
+
+    .detaildesc{
+        display: flex;
+        flex-direction: column-reverse;
+       
+    }
+    .calcform div>input{
+        width: 70%;
+    }
+    .calcform div>label{
+        width: 30%;
+    }
+
+}
+
+@media screen and (max-width:600px){
+    .calculator{
+        width:80%;
+    }
 }
 
 @media screen and (max-width : 350px) {
@@ -119,5 +199,9 @@
         font-size: small;
         position: relative;
         top: 3px;
+    }
+
+    .calculator{
+        width:90%;
     }
 }

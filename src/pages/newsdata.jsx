@@ -24,6 +24,8 @@ function Descsender(html) {
     return { __html: html };
 }
 
+
+
 function newsattacher(arr, index) {
     var desc = arr.description;
     var ddesc = he.decode(desc);
@@ -48,7 +50,7 @@ function newsattacher(arr, index) {
 
     if (source[0] != "Reddit") {
         return (
-            <div className="newsdata bg-secondary" key={arr.title} >
+            <div className="newsdata" key={arr.title} >
                 <img src={arr.imgURL} alt='img' className='newsimg' style={style}></img>
 
                 <div className='newscontent'>

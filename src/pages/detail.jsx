@@ -4,6 +4,7 @@ import CryptoChart from './Fetchgraph'
 import HighLowFetcher from './graphdata'
 import { useParams } from "react-router-dom";
 import '../detail.css'
+import DetailDesc from "./detaildesc";
 
 function Detail(props){
     var param = useParams()
@@ -22,6 +23,8 @@ function Detail(props){
                         <CryptoChart key={sym} sym={sym}/>
                     </div>
                 </div>
+                <DetailDesc key={sym} sym={sym}/>
+
         </div>
     )
 }
