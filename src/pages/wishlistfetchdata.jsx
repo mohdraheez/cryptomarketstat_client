@@ -17,9 +17,7 @@ function attacher(arr,index){
             setdata(response.data.coin)
             setloading(false)
         }
-        getData();
-
-       return ()=> clearInterval(fetcher);
+    getData();
     },[])
 
     var empty = [" "," "," "," "," "," "," "," "," "," "," "," "," "," "]

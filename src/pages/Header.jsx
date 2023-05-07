@@ -10,15 +10,6 @@ import '../header.css'
 import Options from './optiondropdown';
 
 
-function eventHandler(e){
-    var data = e.target.value;
-    var val = e.target.value.split(" ")
-    var length = val.length;
-    if(document.getElementById(data)){
-        window.location.href = `/Details/${val[length-1].toUpperCase()} ${val[0]}`;
-    }
-}
-
 function Header() {
     return (
         <header className="header bg-dark">

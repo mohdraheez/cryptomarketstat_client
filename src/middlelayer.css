@@ -32,6 +32,18 @@
     padding-right: 5%;
     font-family: 'Poppins', sans-serif;
 }
+.nounderline{
+    position: relative;
+    width: 100%;
+    color:white;
+    text-decoration: none;
+}
+.nounderline > li{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
 
 .navitems li:hover{
     border-bottom: 3px solid #57C5B6;

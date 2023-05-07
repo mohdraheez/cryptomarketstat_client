@@ -4,7 +4,7 @@ import { cursymbol } from "./dropdown";
 import star from '../images/star.png'
 import starhover from '../images/starhover.png'
 import starselected from '../images/starselected.png'
-import { json, useParams } from "react-router-dom";
+import { json, useLocation, useParams } from "react-router-dom";
 var page = "topcoins"
 
 function convertor(elem){
@@ -53,7 +53,7 @@ function removehover(e){
     e.target.src = star;
 }
 
-function addclicked(e,sym,id){
+function addclicked(e,sym,id,path){
     if(e.target.alt === "like")
     {
         if(localStorage.getItem("whish")){
@@ -104,6 +104,7 @@ function Datacreator(props){
     var id = props.id;
     var str = symbol +" "+ id;
     var param = useParams();
+    var path = useLocation().pathname;
 
     if(param.id==="wishlist"){
         displayonwish();
@@ -151,15 +152,10 @@ function Datacreator(props){
     else{
         prev[symbol] = Number(price).toFixed(6);
     }
-
-
-    if(param.id==="wishlist"){
-        star = starselected
-    }
     
     return(
         <tr className="tabledatacontent" name={props.symbol} onClick={(e)=>{eventHandler(e,symbol,id)}}>
-        <td className="rankdata"><span><img src={star} alt={param.id==="wishlist"?"liked":"like"} className="like" id={props.symbol} onMouseEnter={addhover} onMouseLeave={removehover} onClick={(e)=>{addclicked(e,symbol,id)}}></img>{props.rank}</span></td>
+        <td className="rankdata"><span><img src={path==='/wishlist'?starselected:star} alt={param.id==="wishlist"?"liked":"like"} className="like" id={props.symbol} onMouseEnter={addhover} onMouseLeave={removehover} onClick={(e)=>{addclicked(e,symbol,id,path)}}></img>{props.rank}</span></td>
         <td className="name"><img src={props.img} alt={props.symbol} className="logo"/><span className="namespan">{props.name}  <span className="sym">{props.symbol}</span></span></td>
         <td style={Style}>{cursymbol}{Number(props.price)<1?Number(props.price).toFixed(8):Number(props.price).toFixed(2)}</td>
         <td style={Number(props.change24hr)>=0?positve:negative}>{Number(props.change24hr).toFixed(2)}%</td>
