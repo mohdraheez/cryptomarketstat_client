@@ -4,13 +4,14 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { curchange } from './dropdown'
 import { clear } from '@testing-library/user-event/dist/clear'
-
+import { curvalue } from './dropdown'
 var switcher = 0;
 var firstload = 0;
+var startindex = 0;
 var indexvalue = 100
 
 function Loader() {
-    indexvalue = indexvalue + 100;
+    startindex = startindex+100;
 }
 
 function remover() {
@@ -30,23 +31,23 @@ function remover() {
 
 
 function ReturnData(arr, index) {
-    if (index < indexvalue) {
+    var price = arr.priceUsd/curvalue;
+    var volume = arr.volumeUsd24Hr/curvalue;
+    var market = arr.marketCapUsd/curvalue;
         return (
             <Datacreator 
                 key={arr.symbol+index}
-                img = {arr.icon}
                 rank={arr.rank}
                 name={arr.name}
-                supply={arr.totalSupply}
-                price={arr.price}
-                change24hr={arr.priceChange1d}
-                volume={arr.volume}
-                marketcap={arr.marketCap}
+                supply={arr.supply}
+                price={price}
+                change24hr={arr.changePercent24Hr}
+                volume={volume}
+                marketcap={market}
                 symbol={arr.symbol}
                 id={arr.id}
             />
         )
-    }
 }
 
 function offlinedata(arr,index) {
@@ -74,14 +75,12 @@ function Tabledata() {
     }
 
     useEffect(() => {
-        const fetchdata = () => {
-         var url= `https://api.coinstats.app/public/v1/coins?skip=0&limit=${indexvalue}&currency=${curchange}`
-            axios.get(url)
+        const fetchdata = async () => {
+         var url= `https://api.coincap.io/v2/assets?offset=${Number(localStorage.getItem('start'))}&limit=100`
+           await axios.get(url)
                 .then((response) => {
-                    setdata(response.data.coins)
-                    if(loading)
+                    setdata(response.data.data)
                     setloading(false);
-
                 })
                 .catch('error', (err) => {
                     console.log(err)
@@ -89,15 +88,61 @@ function Tabledata() {
                 
         }
 
-        if(firstload===0){
-            firstload=1;
-             fetchdata();
+        if(Number(localStorage.getItem("start"))===0){
+            document.querySelector('.prev').style.display="none";
+        }
+        else{
+            document.querySelector('.prev').style.display="";
+        }
+
+        if(Number(localStorage.getItem("start"))===2200){
+            document.querySelector('.next').style.display="none";
+        }
+        else{
+            document.querySelector('.next').style.display="";
         }
 
 
-        document.querySelector('.showmorebtn').addEventListener('click', () => {
-            Loader();
+        document.querySelector('.next').addEventListener('click', () => {
+            setdata([]);
+            setloading(true);
+            localStorage.setItem('start',Number(localStorage.getItem('start'))+100);
             fetchdata();
+            if(Number(localStorage.getItem("start"))===0){
+                document.querySelector('.prev').style.display="none";
+            }
+            else{
+                document.querySelector('.prev').style.display="";
+            }
+    
+            if(Number(localStorage.getItem("start"))===2200){
+                document.querySelector('.next').style.display="none";
+            }
+            else{
+                document.querySelector('.next').style.display="";
+            }
+            window.scrollTo(0, 0);
+        })
+
+        document.querySelector('.prev').addEventListener('click', () => {
+            setdata([]);
+            setloading(true);
+            localStorage.setItem('start',Number(localStorage.getItem('start'))-100);
+            fetchdata();
+            if(Number(localStorage.getItem("start"))===0){
+                document.querySelector('.prev').style.display="none";
+            }
+            else{
+                document.querySelector('.prev').style.display="";
+            }
+    
+            if(Number(localStorage.getItem("start"))===2200){
+                document.querySelector('.next').style.display="none";
+            }
+            else{
+                document.querySelector('.next').style.display="";
+            }
+            window.scrollTo(0, 0);
         })
 
         document.querySelector('.rankbtn').addEventListener('click', () => {
@@ -111,7 +156,6 @@ function Tabledata() {
                 remover();
                 document.querySelector('.rankdown').style.display = "inline";
             }
-            setloading(true)
             fetchdata();
 
         })
@@ -127,7 +171,6 @@ function Tabledata() {
                 remover();
                 document.querySelector('.priceup').style.display = "inline";
             }
-            setloading(true)
             fetchdata();
         })
 
@@ -142,7 +185,6 @@ function Tabledata() {
                 remover();
                 document.querySelector('.hup').style.display = "inline";
             }
-            setloading(true)
             fetchdata();
         })
         document.querySelector('.hvbtn').addEventListener('click', () => {
@@ -156,7 +198,6 @@ function Tabledata() {
                 remover();
                 document.querySelector('.hvup').style.display = "inline";
             }
-            setloading(true)
             fetchdata();
         })
         document.querySelector('.mrktcapbtn').addEventListener('click', () => {
@@ -170,7 +211,6 @@ function Tabledata() {
                 remover();
                 document.querySelector('.mkcapup').style.display = "inline";
             }
-            setloading(true)
             fetchdata();
         })
         document.querySelector('.supplybtn').addEventListener('click', () => {
@@ -184,13 +224,11 @@ function Tabledata() {
                 remover();
                 document.querySelector('.supplyup').style.display = "inline";
             }
-            setloading(true)
             fetchdata();
         })
 
-        const setter = setInterval(fetchdata,500);
+        const setter = setInterval(fetchdata,400);
         return() => clearInterval(setter); 
-        // console.log(data);
 
     },[])
 
@@ -209,25 +247,25 @@ function Tabledata() {
             break;
             case 1:data.sort((a,b) => b.rank-a.rank);
             break;
-            case 2:data.sort((a,b) => b.price-a.price);
+            case 2:data.sort((a,b) => b.priceUsd-a.priceUsd);
             break
-            case 3:data.sort((a,b) => a.price-b.price);
+            case 3:data.sort((a,b) => a.priceUsd-b.priceUsd);
             break;
-            case 4:data.sort((a,b) => b.priceChange1d-a.priceChange1d);
+            case 4:data.sort((a,b) => b.changePercent24Hr-a.changePercent24Hr);
             break
-            case 5:data.sort((a,b) => a.priceChange1d-b.priceChange1d);
+            case 5:data.sort((a,b) => a.changePercent24Hr-b.changePercent24Hr);
             break;
-            case 6:data.sort((a,b) => b.volume-a.volume);
+            case 6:data.sort((a,b) => b.volumeUsd24Hr-a.volumeUsd24Hr);
             break
-            case 7:data.sort((a,b) => a.volume-b.volume);
+            case 7:data.sort((a,b) => a.volumeUsd24Hr-b.volumeUsd24Hr);
             break;
-            case 8:data.sort((a,b) => b.marketCap-a.marketCap);
+            case 8:data.sort((a,b) => b.marketCapUsd-a.marketCapUsd);
             break;
-            case 9:data.sort((a,b) => a.marketCap-b.marketCap);
+            case 9:data.sort((a,b) => a.marketCapUsd-b.marketCapUsd);
             break;
-            case 10:data.sort((a,b) => Number(b.totalSupply)-Number(a.totalSupply));
+            case 10:data.sort((a,b) => Number(b.supply)-Number(a.supply));
             break;
-            case 11:data.sort((a,b) => a.totalSupply-b.totalSupply);
+            case 11:data.sort((a,b) => a.supply-b.supply);
             break;
             default:data.sort((a,b)=> a.rank-b.rank);
           }

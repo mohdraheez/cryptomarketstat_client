@@ -10,20 +10,20 @@ function Detail(props){
     var param = useParams()
     var splitdata = param.id.split(' ');
     var sym = splitdata[0];
-    var name = splitdata[1];
+    var id = splitdata[1];
     return(
         <div className="Details">
-                <ReturnName symbol={sym} name={name} className="DeatailData"/>
+                <ReturnName symbol={sym} id={id} className="DeatailData"/>
                 <div className="Detailcontent">
                     <div className="Detailcontentinnerdiv">
                             <HighLowFetcher key={sym} sym={sym}/>
                     </div>
 
                     <div className="graph">
-                        <CryptoChart key={sym} sym={sym}/>
+                        <CryptoChart key={sym} sym={sym} id={id}/>
                     </div>
                 </div>
-                <DetailDesc key={sym} sym={sym}/>
+                <DetailDesc key={sym} sym={sym} id={id}/>
 
         </div>
     )

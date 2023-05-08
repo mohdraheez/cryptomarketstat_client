@@ -2,10 +2,11 @@ import React from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import {useState} from "react"
+import axios from "axios";
 var curchange = "USD";
 var cursymbol = "$";
 var curs = ["INR","EUR","USD","IDR","TWD","CNY","JPY"]
-
+var curvalue = 1;
 var currencysymbol={
         "INR":"₹",
         "USD":"$",
@@ -26,6 +27,24 @@ var curfullname = {
         "JPY":"Japnese Yen"
 }
 
+var curIds = {
+    "INR":"indian-rupee",
+    "USD":"united-states-dollar",
+    "EUR":"euro",
+    "IDR":"indonesian-rupiah",
+    "TWD":"new-taiwan-dolla",
+    "CNY":"chinese-yuan-renminbi",
+    "JPY":"japanese-yen"
+}
+
+
+function curratefetcher(cur){
+    const fetcher = async () =>{
+        const response = await axios.get(`https://api.coincap.io/v2/rates/${curIds[cur]}`)
+        curvalue = response.data.data.rateUsd;
+    }
+    fetcher();
+}
 
 
 function Dropdown(){
@@ -34,6 +53,7 @@ function Dropdown(){
     }
     else{
         curchange = localStorage.getItem("cur");
+        curratefetcher(curchange);
     }
     cursymbol = currencysymbol[curchange];
     const [cur,setcur] = useState(localStorage.getItem("cur"));
@@ -44,6 +64,7 @@ function Dropdown(){
             <a className="dropdown-item" href="#"
                 onClick={()=>{
                     localStorage.setItem("cur",array);
+                    curratefetcher(array)
                     curchange = array;
                     setcur(array);
                 }}>
@@ -72,3 +93,4 @@ export {cursymbol};
 export {curs};
 export {curfullname};
 export {currencysymbol};
+export {curvalue};

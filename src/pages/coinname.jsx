@@ -60,16 +60,17 @@ function ReturnName(props){
     const [data,setdata] = useState('');
     var cur = localStorage.getItem("cur")
     var sym = props.symbol;
-    var name = String(props.name).toLowerCase();    
+    var id = props.id;
     var style={star};
     useEffect(()=>{
        var fetchname = async() => {
-        var url = `https://api.coinstats.app/public/v1/coins/${name}?currency=${curchange}`
-        const response = await axios.get(url)        
-        setdata(response.data.coin)
+        var url = `https://api.coincap.io/v2/assets/${id}`
+        const response = await axios.get(url)
+        console.log(response.data.data)        
+        setdata(response.data.data)
         }
         if(localStorage.getItem("whish")){
-            var str = sym + " "+ name
+            var str = sym + " "+ id
             var string = localStorage.getItem("whish");
             var arr = JSON.parse(string);
             var index = arr.indexOf(str);
@@ -81,15 +82,16 @@ function ReturnName(props){
        fetchname();
     },[])
 
-
+    var symbolsmall = sym.toLowerCase();
+    var imgurl = `https://assets.coincap.io/assets/icons/${symbolsmall}@2x.png`
     return(
         <div className='detailheader'>
-            <p className="Rank"><img src={star} alt="like" className="like" id={props.symbol} onMouseEnter={addhover} onMouseLeave={removehover} onClick={(e)=>{addclicked(e,sym,name)}}></img>Rank #{data.rank}</p>
+            <p className="Rank"><img src={star} alt="like" className="like" id={props.symbol} onMouseEnter={addhover} onMouseLeave={removehover} onClick={(e)=>{addclicked(e,sym,id)}}></img>Rank #{data.rank}</p>
             <div className='detailheading'>
-            <img src={data.icon} className="detaillogo" /><h1>{data.name}</h1> <span>{props.symbol}</span>
+            <img src={imgurl} className="detaillogo" /><h1>{data.name}</h1> <span>{props.symbol}</span>
             </div>
             <div>
-                <UpdatePrice key={sym} sym={sym}/>
+                <UpdatePrice key={sym} id={id}/>
             </div>
         </div>
     );

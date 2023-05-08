@@ -5,6 +5,7 @@ import { CategoryScale } from 'chart.js';
 import axios from 'axios';
 import {change} from './graphdata'
 import { curchange } from './dropdown'
+import { curvalue } from './dropdown';
 
 Chart.register(CategoryScale);
 
@@ -20,13 +21,16 @@ const CryptoChart = (props) => {
     useEffect(() => {
         var fetchData = async () => {
             try {
-              var url = `https://min-api.cryptocompare.com/data/v2/histominute?fsym=${sym}&tsym=${curchange}&limit=60`;
+//               var now = datetime.datetime.now()
+// var five_minutes_ago = now - datetime.timedelta(seconds=300)
+//  var timestamp = five_minutes_ago.timestamp()
+              var url = `https://api.coincap.io/v2/assets/${props.id}/history?limit=10&interval=d1`;
               const response = await axios.get(url)
-              const data =response.data.Data.Data;
-              const filteredData = window.innerWidth < 768
-              ? data.filter((d) => d.time > (Date.now() - 30 * 60 * 1000) / 1000)
-              : data;
-              setData(filteredData);
+              const data =response.data.data;
+              // const filteredData = window.innerWidth < 768
+              // ? data.filter((d) => d.time > (Date.now() - 30 * 60 * 1000) / 1000)
+              // : data;
+              setData(data);
             } catch (err) {
               console.log(err);
             }
@@ -47,7 +51,7 @@ const CryptoChart = (props) => {
             datasets: [
               {
                 label: '',
-                data: Data && Data.map((data) => data.close),
+                data: Data && Data.map((data) => data.priceUsd/curvalue),
                 borderColor: change<0?negative:positive,
                 fill: true,
                 backgroundColor:change<0?bnegative:bpositive,

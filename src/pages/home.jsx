@@ -6,6 +6,8 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 
 
 function Home(){
+    localStorage.setItem('start',0);
+
     return(
         <div className='home '>
             <div className='tablecontent table-responsive'>
@@ -18,9 +20,14 @@ function Home(){
                 </tbody>
             </table>
             </div>
-            <button className='showmorebtn' >
-                Show more
+            <div className="buttons">
+            <button className='showmorebtn prev' >
+                Previous
             </button>
+            <button className='showmorebtn next' >
+                Next
+            </button>
+            </div>
         </div>
 
     )

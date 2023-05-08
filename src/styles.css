@@ -25,16 +25,17 @@ html, body {
 
 .showmorebtn ,.newsshowmorebtn{
     margin-top: 2.5%;
-    background-color:rgb(3, 201, 136,.7);
+    background-color: #0F6292;
     width: 15%;
     height: 5vh;
-    border-radius: 10px;
+    border-radius: 5px;
     border :transparent;
     color:white;
 }
 
-.showmorebtn:hover,.newsshowmorebtn{
-    background-color:rgb(3, 201, 136,1);
+.showmorebtn:hover,.newsshowmorebtn:hover{
+    background-color:#85CDFD;
+    color: black;
 }
 
 .logo{
@@ -291,6 +292,18 @@ Footer > div > h1{
     justify-content: space-between;
 }
 
+.buttons{
+    text-align: center;
+    width: 100%;
+}
+
+.prev{
+    margin-right: 5px;
+}
+
+.next{
+    margin-left: 5px;
+}
 
 
 .cookieconsent >p{
