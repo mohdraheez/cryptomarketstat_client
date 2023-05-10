@@ -6,7 +6,7 @@ function Footer(){
     return(
         <footer className="Footer bg-secondary text-light">
             <div className="footerheading">
-            <img src={logo} className="footerimg"></img>
+            <img src={logo} className="footerimg" alt="logo"></img>
             <h1>CryptoMarketStat</h1>
             </div>
             <h1 className="description">
