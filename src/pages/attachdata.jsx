@@ -5,6 +5,7 @@ import star from '../images/star.png'
 import starhover from '../images/starhover.png'
 import starselected from '../images/starselected.png'
 import { json, useLocation, useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 var page = "topcoins"
 
 function convertor(elem){

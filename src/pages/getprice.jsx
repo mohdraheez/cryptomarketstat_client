@@ -11,7 +11,6 @@ function UpdatePrice(props){
         var fetchprice = async() => {
             var url = `https://api.coincap.io/v2/assets/${id}`
             const response = await axios.get(url)
-            console.log(response.data.data.priceUsd/curvalue);
             setPrice(response.data.data.priceUsd/curvalue)
         }
         var caller = setInterval(fetchprice,350);

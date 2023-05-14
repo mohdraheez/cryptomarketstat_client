@@ -2,20 +2,27 @@ import React, { useState } from "react";
 import CoinDesc from "./coindesc";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
-import Calculator from "./Calculator";
 import { curs, curfullname, currencysymbol } from "./dropdown";
 import {PriceFetch} from './Calculator'
 import { CurCalculator,CoinCalculator } from "./Calculator";
-
+import { curIds } from "./dropdown";
+import axios from "axios";
+var curvalue = 1;
 function DetailDesc(props){
     const [cur,setcur] = useState("USD");
-    var price = PriceFetch(props.sym,cur)
+    var price = PriceFetch(props.id,cur)
+    var curfetcher = async(cur)=>{
+        const response = await axios.get(`https://api.coincap.io/v2/rates/${curIds[cur]}`)
+        curvalue = response.data.data.rateUsd;
+    }
+
     function returnCurMenu(array,index){
         return(
             <li className="curli" key={index}>
             <a className="dropdown-item"
                 onClick={()=>{
                     setcur(array);
+                    curfetcher(array);
                 }}>
                 <span className="cur">{array}</span> &nbsp;&nbsp;&nbsp;{curfullname[array]}
             </a>
@@ -81,3 +88,4 @@ function DetailDesc(props){
 }
 
 export default DetailDesc;
+export {curvalue}

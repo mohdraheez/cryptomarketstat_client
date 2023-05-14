@@ -94,3 +94,4 @@ export {curs};
 export {curfullname};
 export {currencysymbol};
 export {curvalue};
+export {curIds}
