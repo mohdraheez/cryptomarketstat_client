@@ -130,7 +130,7 @@ function Datacreator(props){
     }
 
     var negative = {
-        color: "#FF8787"
+        color: "#F45050"
     }
 
     var Style = {

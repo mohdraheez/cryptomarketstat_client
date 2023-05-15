@@ -6,25 +6,43 @@ import axios from 'axios';
 import {change} from './graphdata'
 import { curchange } from './dropdown'
 import { curvalue } from './dropdown';
+import 'chartjs-plugin-zoom';
 
 Chart.register(CategoryScale);
+
+var timeinitial = 0;
+
+var timearray = [["m1",10,"10m"],["m1",30,"30m"],["m5",60,"1h"],["h1",24*60,"1d"],["d1",30*24*60,"1M"],["d1",365*24*60,"1Y"]]
+
+var times = {
+  "10m":0,
+  "30m":1,
+  "1h":2,
+  "1d":3,
+  "1M":4,
+  "1Y":5
+}
+
+function InitialUpdate(val){
+  timeinitial = times[val];
+}
 
 
 const CryptoChart = (props) => {
     const [Data, setData] = useState([]);
     var sym = props.sym
     var positive =  "#03C988";
-    var negative = "#DF2E38"
-    var bnegative = 'rgba(223, 46, 56, 0.2)';
-    var bpositive = 'rgba(3, 201, 136,0.2)'
+    var negative = "#F45050"
+    var bnegative = 'rgba(223, 46, 56, 0.3)';
+    var bpositive = 'rgba(3, 201, 136,0.3)'
 
     useEffect(() => {
         var fetchData = async () => {
             try {
-//               var now = datetime.datetime.now()
-// var five_minutes_ago = now - datetime.timedelta(seconds=300)
-//  var timestamp = five_minutes_ago.timestamp()
-              var url = `https://api.coincap.io/v2/assets/${props.id}/history?limit=10&interval=d1`;
+              var now = Date.now();
+              var before= now - (timearray[timeinitial][1] * 60 * 1000);
+
+              var url = `https://api.coincap.io/v2/assets/${props.id}/history?interval=${timearray[timeinitial][0]}&start=${before}&end=${now}`;
               const response = await axios.get(url)
               const data =response.data.data;
               // const filteredData = window.innerWidth < 768
@@ -46,7 +64,7 @@ const CryptoChart = (props) => {
         
 
         const chartData = {
-            labels: Data && Data.map((data) => new Date(data.time * 1000).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})),
+            labels: Data && Data.map((data) => new Date(data.time).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})),
             
             datasets: [
               {
@@ -63,14 +81,21 @@ const CryptoChart = (props) => {
         
          const Options = {
             responsive: true,
-    
+            layout: {
+              padding: {
+                left: 0,
+                right: 0
+              }
+            },
             scales: {
               x: {
                 display: true,
+                offset: false,
                 grid:{
                     display:false
                 },
                 ticks: {
+                color:'white',
                 font: {
                   size: window.innerWidth < 600 ? 6 : 10
                 }
@@ -83,6 +108,7 @@ const CryptoChart = (props) => {
                     display:false
                 },
                 ticks: {
+                  color:'white',
                   font: {
                     size: window.innerWidth < 600 ? 6 : 10
                   }
@@ -99,8 +125,8 @@ const CryptoChart = (props) => {
               },
               tooltip: {
                 enabled: false
-              }
-
+              },
+              
             }
           };
           return (
@@ -113,3 +139,6 @@ const CryptoChart = (props) => {
 
 
 export default CryptoChart;
+export {InitialUpdate};
+export {timeinitial}
+export {timearray}

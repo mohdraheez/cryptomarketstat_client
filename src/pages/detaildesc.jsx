@@ -48,7 +48,7 @@ function DetailDesc(props){
     return(
         <div className="detaildesc text-light">
             <CoinDesc key={props.sym} sym={props.sym}/>
-            <div className="calculator bg-secondary">
+            <div className="calculator">
                 <h2>{props.sym} Calculator</h2>
                 <form className="calcform">
                     <div className="bg-dark">

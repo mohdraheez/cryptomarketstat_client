@@ -9,9 +9,9 @@ const baseUrl = 'https://cryptomarketstat.tech/';
 const sm = new SitemapStream({ hostname: baseUrl });
 
 // Add URLs to the sitemap
-sm.write({ url: '/', changefreq: 'daily', priority: 1.0 });
+sm.write({ url: '/', changefreq: 'hourly', priority: 1.0 });
 sm.write({ url: '/wishlist', changefreq: 'daily', priority: 0.7 });
-sm.write({ url: '/news', changefreq: 'daily', priority: 0.9 });
+sm.write({ url: '/news', changefreq: 'hourly', priority: 0.9 });
 
 // Make a request to the API to get the list of coins
 const fetch = require('node-fetch');
@@ -23,7 +23,7 @@ const getCoins = async () => {
 
     // Add URLs for each coin
     coins.data.forEach((coin) => {
-      sm.write({ url: `/Details/${coin.symbol} ${coin.id}`, changefreq: 'daily', priority: 0.8 });
+      sm.write({ url: `/Details/${coin.symbol} ${coin.id}`, changefreq: 'hourly', priority: 0.9 });
     });
   } else {
     console.log(`Error fetching coins: ${response.status} - ${response.statusText}`);

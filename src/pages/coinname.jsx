@@ -46,7 +46,6 @@ function addclicked(e,sym,id){
         var arr = JSON.parse(string);
         var index = arr.indexOf(str);
         arr.splice(index,1);
-        console.log(arr)
 
         var arrtostore = JSON.stringify(arr)
         localStorage.setItem("whish",arrtostore)
@@ -91,7 +90,7 @@ function ReturnName(props){
             <img src={imgurl} className="detaillogo" /><h1>{data.name}</h1> <span>{props.symbol}</span>
             </div>
             <div>
-                <UpdatePrice key={sym} id={id}/>
+                <UpdatePrice key={sym} id={id} sym={sym}/>
             </div>
         </div>
     );

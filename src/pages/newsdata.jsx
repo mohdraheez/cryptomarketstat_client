@@ -10,7 +10,7 @@ var trend = ``;
 var indexnext = 20;
 var indexfirst = 0;
 
-function reloader(){
+function reloader() {
     indexfirst = 0;
     indexnext = 20;
 }
@@ -32,21 +32,21 @@ function newsattacher(arr, index) {
     var timestamp = arr.feedDate;
     var today = new Date();
     var now = today.getTime();
-    var ago = (now-timestamp);
-    var second = Math.floor(ago/1000);
-    var minute = Math.floor(second/60);
+    var ago = (now - timestamp);
+    var second = Math.floor(ago / 1000);
+    var minute = Math.floor(second / 60);
     var source = arr.source;
     source = source.split(" ");
-    var src= arr.imgURL;
+    var src = arr.imgURL;
     var splitsrc = src.split('/');
     var style = {
 
     }
 
-    if(splitsrc[splitsrc.length-1]==='undefined')
+    if (splitsrc[splitsrc.length - 1] === 'undefined')
         style.display = "none";
 
-    
+
 
     if (source[0] != "Reddit") {
         return (
@@ -57,7 +57,7 @@ function newsattacher(arr, index) {
                     <span ><span className='source'>{arr.source}</span> <span className='date'>Updated:{minute}minutes ago</span></span>
                     <a href={arr.link} className='titlelink'><h1 className="newstitle text-white">{arr.title}</h1></a>
                     <div className='desc' dangerouslySetInnerHTML={Descsender(ddesc)}>
-                    
+
                     </div>
                     <a href={arr.link} className='readmore'>Click here to read more</a>
                     <p className='related' >
@@ -77,7 +77,7 @@ function Newsdata() {
 
     useEffect(() => {
         var fetchdata = async () => {
-            const response = await axios.get('https://api.coinstats.app/public/v1/news/'+trend+'?skip=' + indexfirst + '&limit=' + indexnext);
+            const response = await axios.get('https://api.coinstats.app/public/v1/news/' + trend + '?skip=' + indexfirst + '&limit=' + indexnext);
             setdata(response.data.news);
             setloading(false);
         }
@@ -86,46 +86,46 @@ function Newsdata() {
             loader();
             fetchdata()
         })
-        document.querySelector('.list1').addEventListener('click',()=>{
+        document.querySelector('.list1').addEventListener('click', () => {
             document.querySelector('.select').classList.remove('select');
             document.querySelector('.list1').classList.add('select');
-            trend='latest';
+            trend = 'latest';
             setloading(true);
             fetchdata();
         })
 
-        document.querySelector('.list2').addEventListener('click',()=>{
+        document.querySelector('.list2').addEventListener('click', () => {
             document.querySelector('.select').classList.remove('select');
             document.querySelector('.list2').classList.add('select');
-            trend='handpicked';
+            trend = 'handpicked';
             reloader()
             setloading(true);
             fetchdata();
         })
 
-        document.querySelector('.list3').addEventListener('click',()=>{
+        document.querySelector('.list3').addEventListener('click', () => {
             document.querySelector('.select').classList.remove('select');
             document.querySelector('.list3').classList.add('select');
-            trend='trending';
+            trend = 'trending';
             reloader()
             setloading(true);
             fetchdata();
         })
 
-        
-        document.querySelector('.list4').addEventListener('click',()=>{
+
+        document.querySelector('.list4').addEventListener('click', () => {
             document.querySelector('.select').classList.remove('select');
             document.querySelector('.list4').classList.add('select');
-            trend='bullish';
+            trend = 'bullish';
             reloader()
             setloading(true);
             fetchdata();
         })
 
-        document.querySelector('.list5').addEventListener('click',()=>{
+        document.querySelector('.list5').addEventListener('click', () => {
             document.querySelector('.select').classList.remove('select');
             document.querySelector('.list5').classList.add('select');
-            trend='bearish';
+            trend = 'bearish';
             reloader()
             setloading(true);
             fetchdata();
