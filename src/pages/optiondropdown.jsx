@@ -89,7 +89,7 @@ function Options(){
         inputProps={{
           placeholder: 'Search',
           value: value,
-          className:"search form-control mr-sm-2 bg-dark text-light",
+          className:"search form-control mr-sm-2 bg-dark text-white",
           onChange: onChange,
         }}
 

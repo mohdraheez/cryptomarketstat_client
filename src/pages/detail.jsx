@@ -27,8 +27,6 @@ function Detail(props){
     document.head.appendChild(link);
     }
     link.href = img;
-    var symbolsmall = sym.toLowerCase();
-    link.href = `https://assets.coincap.io/assets/icons/${symbolsmall}@2x.png`
     document.title = id
     return(
         <div className="Details">

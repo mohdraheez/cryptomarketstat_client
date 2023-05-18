@@ -440,3 +440,64 @@ Footer > div > h1{
     flex: 1;
 }
 
+.logindiv{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80vh;
+}
+
+.login-selector{
+    width: 50%;
+    margin-top: 1px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* box-shadow: 0px 0px 2px 1px white; */
+    color: white;
+}
+.loginimagediv{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+.loginimage{
+    width: 60%;
+}
+.login-btn{
+    width: 350px;
+    height:50px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 10px;
+}
+.google-logo{
+    float: left;
+    position: relative;
+    width: 25px;
+}
+
+@media screen and (max-width:768px){
+    .logindiv{
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .loginimagediv{
+        width: 100%;
+    }
+
+    .login-selector{
+        width: 100%;
+    }
+
+    .loginimage{
+        width: 70%;
+    }
+
+    .login-btn{
+        max-width: 450px;
+        width: 70%;
+    }
+}

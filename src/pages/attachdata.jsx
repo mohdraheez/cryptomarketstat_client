@@ -6,6 +6,7 @@ import starhover from '../images/starhover.png'
 import starselected from '../images/starselected.png'
 import { json, useLocation, useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import axios from "axios";
 var page = "topcoins"
 
 function convertor(elem){
@@ -55,10 +56,17 @@ function removehover(e){
 }
 
 function addclicked(e,sym,id,path){
-    if(e.target.alt === "like")
-    {
-        if(localStorage.getItem("whish")){
+    if(localStorage.getItem("loginAutentication")){
+        var userid = JSON.parse(localStorage.getItem("loginAutentication"));
+        console.log(userid.hasOwnProperty('id'))
+        if(userid.hasOwnProperty("id")){
             var str = sym + " "+ id
+
+        axios.post('https://cryptomarketstat.azurewebsites.net/wishlist',[userid.id,str]);
+            if(e.target.alt === "like")
+        {   
+
+        if(localStorage.getItem("whish")){
             var string = localStorage.getItem("whish");
             var arr = JSON.parse(string);
             
@@ -67,7 +75,6 @@ function addclicked(e,sym,id,path){
             localStorage.setItem("whish",arrtostore)
         }
         else{
-            var str = sym + " "+ id
             var arr= [];
             arr.push(str);
             var arrtostore = JSON.stringify(arr)
@@ -77,6 +84,7 @@ function addclicked(e,sym,id,path){
         e.target.src = starselected;
     }
     else{
+        axios.post('https://cryptomarketstat.azurewebsites.net/deletewishlist',[userid.id,str]);
         var str = sym + " "+ id;
         var string = localStorage.getItem("whish");
         var arr = JSON.parse(string);
@@ -90,6 +98,15 @@ function addclicked(e,sym,id,path){
         e.target.alt = "like"
         e.target.src = star;
     }
+        }
+        else{
+            window.location.href = '/login'
+        }
+    }
+    else{
+        window.location.href = '/login'
+    }
+    
 }
 
 

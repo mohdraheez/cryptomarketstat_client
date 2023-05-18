@@ -17,12 +17,18 @@ function removehover(e){
     if(e.target.alt!="liked")
     e.target.src = star;
 }
-
-function addclicked(e,sym,id){
-    if(e.target.alt === "like")
-    {
-        if(localStorage.getItem("whish")){
+function addclicked(e,sym,id,path){
+    if(localStorage.getItem("loginAutentication")){
+        var userid = JSON.parse(localStorage.getItem("loginAutentication"));
+        console.log(userid.hasOwnProperty('id'))
+        if(userid.hasOwnProperty("id")){
             var str = sym + " "+ id
+
+        axios.post('http://localhost:3001/wishlist',[userid.id,str]);
+            if(e.target.alt === "like")
+        {   
+
+        if(localStorage.getItem("whish")){
             var string = localStorage.getItem("whish");
             var arr = JSON.parse(string);
             
@@ -31,7 +37,6 @@ function addclicked(e,sym,id){
             localStorage.setItem("whish",arrtostore)
         }
         else{
-            var str = sym + " "+ id
             var arr= [];
             arr.push(str);
             var arrtostore = JSON.stringify(arr)
@@ -41,11 +46,13 @@ function addclicked(e,sym,id){
         e.target.src = starselected;
     }
     else{
+        axios.post('https://cryptomarketstat.azurewebsites.net/deletewishlist',[userid.id,str]);
         var str = sym + " "+ id;
         var string = localStorage.getItem("whish");
         var arr = JSON.parse(string);
         var index = arr.indexOf(str);
         arr.splice(index,1);
+        console.log(arr)
 
         var arrtostore = JSON.stringify(arr)
         localStorage.setItem("whish",arrtostore)
@@ -53,6 +60,15 @@ function addclicked(e,sym,id){
         e.target.alt = "like"
         e.target.src = star;
     }
+        }
+        else{
+            window.location.href = '/login'
+        }
+    }
+    else{
+        window.location.href = '/login'
+    }
+    
 }
 
 function ReturnName(props){
