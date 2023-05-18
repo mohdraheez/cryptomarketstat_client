@@ -438,6 +438,7 @@ Footer > div > h1{
     margin-left: 0;
     padding: 0;
     flex: 1;
+    min-height: 90vh;
 }
 
 .logindiv{
@@ -499,5 +500,203 @@ Footer > div > h1{
     .login-btn{
         max-width: 450px;
         width: 70%;
+    }
+}
+
+.box{
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.card-box{
+    width: 80%;
+    padding: 2%;
+}
+
+.moneyimg{
+    width: 25px;
+}
+
+.card-value *{
+    margin: 0;
+    padding:0;
+}
+
+.card-money{
+    margin: 0;
+    padding:0;
+    display: flex;
+    text-align: center;
+}
+.card-top{
+    display: flex;
+    justify-content: space-between;
+}
+.card-value > h3{
+    font-size: larger;
+}
+
+.note-div{
+    position: relative;
+    width: 80%;
+    background-color: black;
+    overflow-x: hidden;
+}
+
+.note{
+    animation: moveNote 10s linear infinite;
+}
+
+@keyframes moveNote {
+    0%{
+      transform :translateX(-20%);
+    }
+    100%{
+        transform:translateX(100%);
+    }
+}
+
+.invest-div{
+    padding:0%;
+    width: 80%;
+}
+
+.invest-nav{
+    padding:0;
+    margin: 0;
+    display: flex;
+    list-style-type: none;
+}
+
+.invest-nav > li{
+    font-family: 'Poppins', sans-serif;
+    padding: 1%;
+    padding-left: 4%;
+    padding-right: 4%;
+    border-right: 1px solid black;
+}
+.invest-nav > li:hover{
+    background-color:#57C5B6;
+}
+.invest-coins{
+    display: flex;
+    width: 80%;
+    margin-top: 2%;
+}
+
+.invest-coin-item{
+    display: flex;
+    flex-direction: column;
+}
+
+.invest-coin{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+.invest-coin-name-li{
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+}
+.invest-coin-name-li > div{
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+}
+
+.invest-coin-img{
+    width:35px;
+    margin-right: 5px;
+}
+
+.trade-btn{
+    margin-right: 10px;
+}
+.collapse{
+    display:flex;
+    flex-direction: column;
+}
+.collapse-inner-div{
+    display: flex;
+    justify-content:space-between;
+}
+.buy-div{
+    width: 65%;
+    display: flex;
+}
+.buy-div input{
+    width: 100%;
+}
+.buy-div button{
+    width: 80%;
+}
+.sell-div{
+    display: flex;
+    width:35%;
+}
+.sell-div input{
+    width:100%;
+}
+.sell-div button{
+width:80%;    
+}
+.alert-message{
+    display: none;
+}
+
+@media screen and (max-width:500px){
+    .card-value > h3{
+        font-size: small;
+    }
+    .box{
+        margin-top: 2%;
+    }
+    .card-box{
+        width: 90%;
+    }
+
+    .note-div{
+        width: 90%;
+    }
+    .invest-div{
+        width: 90%;
+    }
+    .invest-coins{
+        width: 90%;
+    }
+
+    .note{
+        animation: moveNote 8s linear infinite;
+    }
+    
+    
+    
+    @keyframes moveNote {
+        0%{
+          transform :translateX(-100%);
+        }
+        100%{
+            transform:translateX(100%);
+        }
+    }
+
+    .collapse-inner-div{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .buy-div{
+        width: 100%;
+    }
+    .sell-div{
+        width:100%;
+    }
+    .sell-div button{
+        width: 42.5%;
     }
 }

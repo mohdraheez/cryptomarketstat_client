@@ -21,7 +21,6 @@ function Header() {
 
     if(localStorage.getItem("loginAutentication")){
         var userid = JSON.parse(localStorage.getItem("loginAutentication"));
-        console.log(userid.hasOwnProperty('id'))
         if(userid.hasOwnProperty("id")){
             login_style.display = "none";
             logout_style.display = "block";

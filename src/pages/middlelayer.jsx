@@ -12,24 +12,29 @@ function MiddleLayer(){
     var home = 'homeli'
     var wishlist = 'wishlistli'
     var news = 'newsli'
-
-    console.log(param.pathname)
-
+    var invest = 'investli'
     if(param.pathname==='/wishlist')
     wishlist ='selected'
     else if(param.pathname==='/news')
     news = 'selected'
+    else if(param.pathname==='/invest')
+    invest = 'selected'
     else 
     home = 'selected'
+
 
     home+=" topcoins"
     wishlist+=" whishlist"
     news += " newstag"
+    invest += " investtag"
 
     return(
         <nav className="bg-dark middlelayer">
             <ul className="navitems">
             <Link to="/" className="nounderline"><li className={home}>Top Coins</li></Link>
+            <Link to="/invest" className="nounderline"><li className={invest}>
+                Invest/Trade<span>[demo]</span>
+                </li></Link>
             <Link to="/wishlist" className="nounderline"><li className={wishlist}>WatchList</li></Link>
             <Link to="/news" className="nounderline"><li className={news}>News</li></Link>
             </ul>

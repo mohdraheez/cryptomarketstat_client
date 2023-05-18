@@ -27,6 +27,7 @@ function CoinCalculator(input){
     }
     return (input/price);
 }
+
 export {CoinCalculator};
 export {CurCalculator};
 export {PriceFetch};

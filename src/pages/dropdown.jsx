@@ -32,7 +32,7 @@ var curIds = {
     "USD":"united-states-dollar",
     "EUR":"euro",
     "IDR":"indonesian-rupiah",
-    "TWD":"new-taiwan-dolla",
+    "TWD":"new-taiwan-dollar",
     "CNY":"chinese-yuan-renminbi",
     "JPY":"japanese-yen"
 }

@@ -24,7 +24,7 @@ function addclicked(e,sym,id,path){
         if(userid.hasOwnProperty("id")){
             var str = sym + " "+ id
 
-        axios.post('http://localhost:3001/wishlist',[userid.id,str]);
+        axios.post('https://cryptomarketstat.azurewebsites.net/wishlist',[userid.id,str]);
             if(e.target.alt === "like")
         {   
 
